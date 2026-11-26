@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>MOUNTAIN - Where Authors Rise</title>
+  <meta name="description" content="MOUNTAIN - Where Authors Rise. Digital eBooks & Research Files marketplace. Authors earn 60-70% revenue." />
+  <style>
+    :root {
+      --bg-white: #ffffff;
+      --bg-surface: #f7f9fc;
+      --navy: #0b1f3a;
+      --navy-deep: #061325;
+      --navy-accent: #163a6b;
+      --black: #0a0a0c;
+      --text-main: #111827;
+      --text-muted: #4b5563;
+      --border: #e5e7eb;
+      --border-strong: #cbd5e1;
+      --success: #065f46;
+      --success-bg: #ecfdf5;
+      --warning: #92400e;
+      --warning-bg: #fffbeb;
+      --radius: 10px;
+      --shadow-sm: 0 2px 8px rgba(11, 31, 58, 0.06);
+      --shadow-md: 0 12px 32px rgba(11, 31, 58, 0.14);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif;
+      background: var(--bg-white);
+      color: var(--text-main);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    /* HEADER */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: var(--bg-white);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .brand-icon { width: 34px; height: 26px; flex-shrink: 0; }
+
+    .brand-wordmark {
+      font-size: 1.2rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      color: var(--black);
+    }
+
+    .main-nav {
+      display: none;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nav-link {
+      padding: 7px 12px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-main);
+      border-radius: 8px;
+      transition: background 0.15s ease, color 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover { background: var(--bg-surface); color: var(--navy); }
+    .nav-link.active { background: var(--navy); color: #ffffff; }
+
+    /* Mobile Bottom Nav */
+    .mobile-bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 40;
+      background: #ffffff;
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+
+    .mobile-nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      padding: 8px 2px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .mobile-nav-item svg { width: 20px; height: 20px; }
+    .mobile-nav-item.active { color: var(--navy); }
+
+    .main-content {
+      min-height: calc(100vh - 180px);
+      padding-bottom: 84px;
+    }
+
+    /* HERO */
+    .hero-banner {
+      background: linear-gradient(135deg, var(--black) 0%, var(--navy-deep) 45%, var(--navy) 100%);
+      color: #ffffff;
+      padding: 40px 0 46px;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #93c5fd;
+      margin-bottom: 10px;
+    }
+
+    .hero-title {
+      font-size: 1.9rem;
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      color: #dbeafe;
+      max-width: 640px;
+      margin-bottom: 22px;
+    }
+
+    .hero-actions {
+      displa
+... 
