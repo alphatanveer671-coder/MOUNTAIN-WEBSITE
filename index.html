@@ -2,9 +2,8 @@
 <html lang="hi">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>MOUNTAIN - Where Authors Rise</title>
-  <meta name="description" content="MOUNTAIN - Digital eBooks & Research Files Marketplace. Authors earn 60% on eBooks & 70% on Research Files." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MOUNTAIN STORE | Digital Marketplace</title>
   <style>
     :root {
       --bg-white: #ffffff;
@@ -12,196 +11,36 @@
       --navy: #0b1f3a;
       --navy-deep: #061325;
       --navy-accent: #163a6b;
-      --black: #0a0a0c;
-      --text-main: #111827;
-      --text-muted: #4b5563;
+      --black: #111827;
+      --text-muted: #6b7280;
       --border: #e5e7eb;
-      --border-strong: #cbd5e1;
-      --success: #065f46;
+      --border-strong: #d1d5db;
+      --success: #059669;
       --success-bg: #ecfdf5;
-      --warning: #92400e;
+      --warning: #b45309;
       --warning-bg: #fffbeb;
-      --radius: 10px;
-      --shadow-sm: 0 2px 8px rgba(11, 31, 58, 0.06);
-      --shadow-md: 0 12px 32px rgba(11, 31, 58, 0.14);
+      --radius: 12px;
+      --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 8px 24px rgba(11, 31, 58, 0.12);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html, body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif;
-      background: var(--bg-white);
-      color: var(--text-main);
-      line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a { color: inherit; text-decoration: none; cursor: pointer; }
-    button { font-family: inherit; cursor: pointer; border: none; }
-
-    .container {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 16px;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+    body { background: var(--bg-surface); color: var(--black); line-height: 1.5; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
 
     /* HEADER */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 40;
-      background: var(--bg-white);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .header-inner {
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .brand-logo {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      cursor: pointer;
-    }
-
-    .brand-icon {
-      width: 34px;
-      height: 26px;
-      background: var(--navy);
-      color: #fff;
-      border-radius: 6px;
-      display: grid;
-      place-items: center;
-      font-weight: 900;
-      font-size: 0.9rem;
-    }
-
-    .brand-wordmark {
-      font-size: 1.2rem;
-      font-weight: 900;
-      letter-spacing: 0.1em;
-      color: var(--black);
-    }
-
-    .main-nav {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      overflow-x: auto;
-    }
-
-    .nav-link {
-      padding: 7px 12px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--text-main);
-      border-radius: 8px;
-      white-space: nowrap;
-      background: transparent;
-    }
-
-    .nav-link:hover { background: var(--bg-surface); color: var(--navy); }
-    .nav-link.active { background: var(--navy); color: #ffffff; }
-
-    @media (max-width: 768px) {
-      .main-nav { display: none; }
-    }
-
-    /* Mobile Bottom Nav */
-    .mobile-bottom-nav {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 40;
-      background: #ffffff;
-      border-top: 1px solid var(--border);
-      display: none;
-      grid-template-columns: repeat(5, 1fr);
-      padding-bottom: env(safe-area-inset-bottom);
-    }
-
-    @media (max-width: 768px) {
-      .mobile-bottom-nav { display: grid; }
-    }
-
-    .mobile-nav-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 2px;
-      padding: 8px 2px;
-      font-size: 0.65rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      background: none;
-    }
-
-    .mobile-nav-item.active { color: var(--navy); font-weight: 800; }
-
-    .main-content {
-      min-height: calc(100vh - 140px);
-      padding-bottom: 88px;
-    }
-
-    .page-section { display: none; }
-    .page-section.active { display: block; }
+    .site-header { background: var(--navy-deep); color: #fff; padding: 14px 0; position: sticky; top: 0; z-index: 50; }
+    .header-inner { display: flex; justify-content: space-between; align-items: center; }
+    .brand { font-size: 1.2rem; font-weight: 800; letter-spacing: 0.5px; }
+    .nav-btns { display: flex; gap: 8px; }
 
     /* HERO */
-    .hero-banner {
-      background: linear-gradient(135deg, var(--black) 0%, var(--navy-deep) 45%, var(--navy) 100%);
-      color: #ffffff;
-      padding: 40px 0 48px;
-    }
+    .hero { background: linear-gradient(135deg, var(--navy-deep), var(--navy-accent)); color: #fff; padding: 42px 16px 56px; text-align: center; }
+    .hero h1 { font-size: 1.8rem; font-weight: 800; margin-bottom: 10px; }
+    .hero p { color: #cbd5e1; max-width: 600px; margin: 0 auto 20px; font-size: 0.95rem; }
 
-    .hero-eyebrow {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #93c5fd;
-      margin-bottom: 10px;
-    }
-
-    .hero-title {
-      font-size: 1.9rem;
-      line-height: 1.15;
-      font-weight: 800;
-      margin-bottom: 12px;
-    }
-
-    .hero-subtitle {
-      font-size: 0.96rem;
-      color: #dbeafe;
-      max-width: 650px;
-      margin-bottom: 22px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .btn {
-      padding: 10px 18px;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 0.88rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: 0.2s;
-    }
-
+    /* BUTTONS */
+    .btn { padding: 10px 16px; border-radius: 8px; font-weight: 700; font-size: 0.88rem; cursor: pointer; border: none; transition: 0.2s; }
     .btn-primary { background: #ffffff; color: var(--navy); }
     .btn-outline { background: rgba(255,255,255,0.12); color: #ffffff; border: 1px solid rgba(255,255,255,0.3); }
     .btn-navy { background: var(--navy); color: #ffffff; }
@@ -209,186 +48,41 @@
     .btn-success { background: var(--success); color: #ffffff; }
 
     /* SEARCH BAR */
-    .search-box-wrap {
-      margin: -22px auto 26px;
-      max-width: 760px;
-      background: #fff;
-      padding: 8px;
-      border-radius: 12px;
-      box-shadow: var(--shadow-md);
-      border: 1px solid var(--border);
-      display: flex;
-      gap: 8px;
-    }
+    .search-box-wrap { margin: -24px auto 26px; max-width: 760px; background: #fff; padding: 8px; border-radius: 12px; box-shadow: var(--shadow-md); border: 1px solid var(--border); display: flex; gap: 8px; }
+    .search-input { flex: 1; border: none; outline: none; padding: 10px 14px; font-size: 0.95rem; }
 
-    .search-input {
-      flex: 1;
-      border: none;
-      outline: none;
-      padding: 10px 14px;
-      font-size: 0.95rem;
-    }
-
-    /* CARDS & GRIDS */
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin: 26px 0 14px;
-    }
-
-    .section-title {
-      font-size: 1.25rem;
-      font-weight: 800;
-      color: var(--navy);
-    }
-
-    .grid-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 18px;
-    }
-
-    .card {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .card-cover {
-      height: 170px;
-      background: linear-gradient(135deg, var(--navy), var(--navy-accent));
-      color: #fff;
-      padding: 14px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      position: relative;
-      background-size: cover;
-      background-position: center;
-    }
-
-    .card-cover.file-type {
-      background: linear-gradient(135deg, #1f2937, #374151);
-    }
-
-    .cover-overlay {
-      background: rgba(6, 19, 37, 0.68);
-      padding: 8px;
-      border-radius: 6px;
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 3px 8px;
-      font-size: 0.7rem;
-      font-weight: 700;
-      border-radius: 6px;
-      background: rgba(11, 31, 58, 0.85);
-      color: #fff;
-      width: fit-content;
-    }
-
-    .badge-pending { background: var(--warning-bg); color: var(--warning); border: 1px solid #fcd34d; }
-    .badge-live { background: var(--success-bg); color: var(--success); border: 1px solid #6ee7b7; }
-
-    .card-body { padding: 14px; }
-    .card-title { font-size: 1rem; font-weight: 700; margin-bottom: 4px; color: var(--black); }
-    .card-meta { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px; }
-    .card-footer {
-      padding: 12px 14px;
-      border-top: 1px solid var(--border);
-      background: var(--bg-surface);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .price-tag { font-size: 1.05rem; font-weight: 800; color: var(--navy); }
-
-    /* FORMS & PANELS */
-    .panel {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px;
-      margin-top: 18px;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .form-group { margin-bottom: 14px; }
-    .form-label { display: block; font-size: 0.86rem; font-weight: 700; margin-bottom: 6px; color: var(--navy); }
-    .form-control {
-      width: 100%;
-      padding: 10px 12px;
-      border: 1px solid var(--border-strong);
-      border-radius: 8px;
-      font-size: 0.92rem;
-    }
-
-    .alert-box {
-      padding: 14px;
-      border-radius: 8px;
-      font-size: 0.86rem;
-      margin-bottom: 16px;
-    }
-    .alert-info { background: #eff6ff; color: #1e40af; border: 1px solid #bfdbfe; }
-    .alert-warning { background: var(--warning-bg); color: var(--warning); border: 1px solid #fde68a; }
-    .alert-success { background: var(--success-bg); color: var(--success); border: 1px solid #a7f3d0; }
-
-    .stat-row {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 12px;
-      margin-bottom: 18px;
-    }
-
-    .stat-box {
-      background: var(--bg-surface);
-      border: 1px solid var(--border);
-      padding: 14px;
-      border-radius: 10px;
-    }
-    .stat-val { font-size: 1.45rem; font-weight: 900; color: var(--navy); }
+    /* STATS */
+    .stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 24px; }
+    .stat-box { background: #fff; border: 1px solid var(--border); padding: 14px; border-radius: 10px; text-align: center; box-shadow: var(--shadow-sm); }
+    .stat-val { font-size: 1.4rem; font-weight: 900; color: var(--navy); }
     .stat-lbl { font-size: 0.78rem; color: var(--text-muted); font-weight: 600; }
 
-    .split-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 16px;
-      margin: 16px 0;
-    }
-    .split-card {
-      background: var(--bg-surface);
-      border: 2px solid var(--navy);
-      border-radius: 10px;
-      padding: 16px;
-    }
+    /* CARDS & GRIDS */
+    .section-header { display: flex; justify-content: space-between; align-items: center; margin: 24px 0 14px; }
+    .section-title { font-size: 1.25rem; font-weight: 800; color: var(--navy); }
+    .grid-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 18px; margin-bottom: 30px; }
+    .card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; justify-content: space-between; }
+    .card-cover { height: 150px; background: linear-gradient(135deg, var(--navy), var(--navy-accent)); color: #fff; padding: 14px; display: flex; flex-direction: column; justify-content: space-between; }
+    .card-cover.file-type { background: linear-gradient(135deg, #1f2937, #374151); }
+    .badge { display: inline-block; padding: 3px 8px; font-size: 0.7rem; font-weight: 700; border-radius: 6px; width: fit-content; }
+    .badge-live { background: var(--success-bg); color: var(--success); }
+    .badge-pending { background: var(--warning-bg); color: var(--warning); }
+    .card-body { padding: 14px; }
+    .card-title { font-size: 1rem; font-weight: 700; margin-bottom: 4px; color: var(--black); }
+    .card-meta { font-size: 0.8rem; color: var(--text-muted); }
+    .card-footer { padding: 12px 14px; border-top: 1px solid var(--border); background: var(--bg-surface); display: flex; align-items: center; justify-content: space-between; }
+    .price-tag { font-size: 1.05rem; font-weight: 800; color: var(--navy); }
+
+    /* UPLOAD PANEL */
+    .panel { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; margin-bottom: 40px; box-shadow: var(--shadow-sm); }
+    .form-group { margin-bottom: 14px; }
+    .form-label { display: block; font-size: 0.86rem; font-weight: 700; margin-bottom: 6px; color: var(--navy); }
+    .form-control { width: 100%; padding: 10px 12px; border: 1px solid var(--border-strong); border-radius: 8px; font-size: 0.92rem; }
 
     /* MODAL */
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.65);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 100;
-      padding: 16px;
-    }
+    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.65); display: none; align-items: center; justify-content: center; z-index: 100; padding: 16px; }
     .modal-overlay.open { display: flex; }
-    .modal-box {
-      background: #fff;
-      border-radius: 12px;
-      max-width: 480px;
-      width: 100%;
-      padding: 22px;
-    }
+    .modal-box { background: #fff; border-radius: 12px; max-width: 440px; width: 100%; padding: 22px; }
   </style>
 </head>
 <body>
@@ -396,4 +90,105 @@
   <!-- TOP HEADER -->
   <header class="site-header">
     <div class="container header-inner">
-      
+      <div class="brand">⛰️ MOUNTAIN STORE</div>
+      <div class="nav-btns">
+        <button class="btn btn-outline" onclick="scrollToSection('store')">Store</button>
+        <button class="btn btn-primary" onclick="scrollToSection('sell')">+ Sell Item</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="container">
+      <h1>Digital Books, Notes & Project Files</h1>
+      <p>यहाँ से बेहतरीन ई-बुक्स, कोडिंग फाइलें और स्टडी नोट्स सीधे डाउनलोड करें या अपने प्रोडक्ट बेचें।</p>
+      <button class="btn btn-primary" onclick="scrollToSection('store')">Explore Store</button>
+    </div>
+  </section>
+
+  <!-- SEARCH BAR -->
+  <div class="container">
+    <div class="search-box-wrap">
+      <input type="text" id="searchInput" class="search-input" placeholder="Search e-books, PDFs, templates..." onkeyup="filterProducts()" />
+      <button class="btn btn-navy" onclick="filterProducts()">Search</button>
+    </div>
+
+    <!-- STATS ROW -->
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="stat-val" id="totalItems">4</div>
+        <div class="stat-lbl">Live Products</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-val">100%</div>
+        <div class="stat-lbl">Instant Download</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-val">₹0</div>
+        <div class="stat-lbl">Listing Fee</div>
+      </div>
+    </div>
+
+    <!-- PRODUCTS GRID -->
+    <div class="section-header" id="store">
+      <h2 class="section-title">Featured Digital Products</h2>
+    </div>
+    <div class="grid-cards" id="productGrid"></div>
+
+    <!-- ADD NEW PRODUCT PANEL -->
+    <div class="panel" id="sell">
+      <h2 class="section-title" style="margin-bottom: 14px;">📤 List a New Digital Product</h2>
+      <div class="form-group">
+        <label class="form-label">Product Title</label>
+        <input type="text" id="prodTitle" class="form-control" placeholder="e.g., Complete Web Dev Guide PDF" />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Category / Type</label>
+        <select id="prodType" class="form-control">
+          <option value="E-Book (PDF)">E-Book (PDF)</option>
+          <option value="Source Code">Source Code / Template</option>
+          <option value="Study Notes">Study Notes</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Price (₹ INR)</label>
+        <input type="number" id="prodPrice" class="form-control" placeholder="e.g., 199" />
+      </div>
+      <button class="btn btn-navy" onclick="addProduct()">Publish Product Now</button>
+    </div>
+  </div>
+
+  <!-- BUY MODAL -->
+  <div class="modal-overlay" id="buyModal">
+    <div class="modal-box">
+      <h3 style="color: var(--navy); margin-bottom: 8px;" id="modalTitle">Buy Product</h3>
+      <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 16px;" id="modalDesc">Instant digital delivery after payment.</p>
+      <div style="background: var(--bg-surface); padding: 12px; border-radius: 8px; margin-bottom: 16px; border: 1px solid var(--border);">
+        <strong>Total Payable:</strong> <span id="modalPrice" style="color: var(--success); font-weight: 800;">₹0</span>
+      </div>
+      <div style="display: flex; gap: 10px; justify-content: flex-end;">
+        <button class="btn btn-outline" style="color: var(--black); border-color: var(--border-strong);" onclick="closeModal()">Cancel</button>
+        <button class="btn btn-success" onclick="confirmPurchase()">Confirm & Download</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const products = [
+      { title: "Web Development Masterclass", type: "E-Book (PDF)", price: 299, status: "LIVE" },
+      { title: "Mountain Website Template", type: "Source Code", price: 499, status: "LIVE" },
+      { title: "Digital Marketing Blueprint", type: "E-Book (PDF)", price: 199, status: "LIVE" },
+      { title: "Python Complete Notes", type: "Study Notes", price: 149, status: "LIVE" }
+    ];
+
+    function renderProducts(list) {
+      const grid = document.getElementById("productGrid");
+      grid.innerHTML = "";
+      list.forEach((p, idx) => {
+        const isFile = p.type === "Source Code";
+        grid.innerHTML += `
+          <div class="card">
+            <div class="card-cover ${isFile ? 'file-type' : ''}">
+              <span class="badge badge-live">${p.status}</span>
+    
