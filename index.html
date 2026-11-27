@@ -252,15 +252,17 @@
     .book-cover-wrap {
       position: relative;
       background: var(--navy-deep);
-      aspect-ratio: 4 / 5;
+      aspect-ratio: 4 / 3;
       overflow: hidden;
       cursor: pointer;
-    }
-
-    .book-cover-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 800;
+      font-size: 1.2rem;
+      padding: 16px;
+      text-align: center;
     }
 
     .badge-new {
@@ -306,7 +308,6 @@
       cursor: pointer;
     }
 
-    .book-title:hover { color: var(--navy-accent); }
     .book-author { font-size: 0.86rem; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
     .book-price { font-size: 1.18rem; font-weight: 800; color: var(--black); margin-bottom: 8px; }
 
@@ -314,10 +315,6 @@
       font-size: 0.86rem;
       color: var(--text-muted);
       margin-bottom: 14px;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
       flex: 1;
     }
 
@@ -347,155 +344,6 @@
       outline: none;
     }
 
-    .search-input:focus { box-shadow: 0 0 0 3px rgba(11, 31, 58, 0.14); }
-
-    .empty-state {
-      text-align: center;
-      padding: 56px 20px;
-      border: 1px dashed var(--border-strong);
-      border-radius: var(--radius);
-      background: var(--bg-surface);
-    }
-
-    .empty-state h3 { font-size: 1.3rem; color: var(--black); margin-bottom: 6px; }
-    .empty-state p { color: var(--text-muted); }
-
-    /* MINI SITE */
-    .mini-site-banner {
-      background: linear-gradient(135deg, var(--black) 0%, var(--navy-deep) 45%, var(--navy) 100%);
-      color: #ffffff;
-      padding: 20px 0 36px;
-    }
-
-    .breadcrumb-back {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: #bfdbfe;
-      margin-bottom: 20px;
-    }
-
-    .mini-hero-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 24px;
-      align-items: start;
-    }
-
-    .mini-cover-frame {
-      max-width: 280px;
-      margin: 0 auto;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-    }
-
-    .mini-category-pill {
-      display: inline-block;
-      background: rgba(255, 255, 255, 0.12);
-      color: #dbeafe;
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 4px 10px;
-      border-radius: 999px;
-      margin-bottom: 10px;
-    }
-
-    .mini-book-title {
-      font-size: 1.75rem;
-      line-height: 1.15;
-      font-weight: 800;
-      margin-bottom: 8px;
-    }
-
-    .mini-book-author {
-      font-size: 1.05rem;
-      color: #bfdbfe;
-      margin-bottom: 14px;
-    }
-
-    .mini-rating-row {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.9rem;
-      color: #e5e7eb;
-      margin-bottom: 18px;
-    }
-
-    .mini-price-box {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      border-radius: 10px;
-      padding: 16px;
-      margin-bottom: 18px;
-    }
-
-    .mini-price-inr { font-size: 2rem; font-weight: 800; color: #ffffff; }
-    .mini-tax-note { font-size: 0.8rem; color: #cbd5e1; }
-
-    .mini-cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .mini-details-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 24px;
-      padding: 32px 16px;
-    }
-
-    .detail-card {
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px;
-    }
-
-    .detail-card h2 {
-      font-size: 1.2rem;
-      font-weight: 800;
-      color: var(--black);
-      margin-bottom: 12px;
-    }
-
-    .detail-card p { color: var(--text-main); margin-bottom: 10px; }
-
-    .specs-table {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      margin-top: 12px;
-    }
-
-    .spec-item {
-      background: var(--bg-surface);
-      padding: 12px;
-      border-radius: 8px;
-    }
-
-    .spec-label {
-      display: block;
-      font-size: 0.74rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
-
-    .spec-val {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--black);
-    }
-
     /* FORMS */
     .form-card {
       background: #ffffff;
@@ -507,19 +355,8 @@
       margin: 0 auto;
     }
 
-    .form-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 0.86rem;
-      font-weight: 700;
-      color: var(--black);
-      margin-bottom: 6px;
-    }
+    .form-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    .form-group label { display: block; font-size: 0.86rem; font-weight: 700; color: var(--black); margin-bottom: 6px; }
 
     .form-control {
       width: 100%;
@@ -529,17 +366,6 @@
       border: 1.5px solid var(--border-strong);
       border-radius: 8px;
       background: #ffffff;
-      color: var(--black);
-    }
-
-    .form-control:focus {
-      outline: none;
-      border-color: var(--navy);
-    }
-
-    textarea.form-control {
-      min-height: 100px;
-      resize: vertical;
     }
 
     .alert {
@@ -550,281 +376,16 @@
       margin-bottom: 16px;
     }
 
-    .alert-success {
-      background: var(--success-bg);
-      color: var(--success);
-      border: 1px solid #a7f3d0;
-    }
+    .alert-success { background: var(--success-bg); color: var(--success); border: 1px solid #a7f3d0; }
 
-    .alert-error {
-      background: #fef2f2;
-      color: #991b1b;
-      border: 1px solid #fecaca;
-    }
-
-    .alert-warning {
-      background: var(--warning-bg);
-      color: var(--warning);
-      border: 1px solid #fde68a;
-    }
-
-    /* Type Toggle */
-    .type-toggle {
-      display: flex;
-      gap: 0;
-      border: 2px solid var(--navy);
-      border-radius: 10px;
-      overflow: hidden;
-      margin-bottom: 8px;
-    }
-
-    .type-toggle button {
-      flex: 1;
-      padding: 12px;
-      font-size: 0.95rem;
-      font-weight: 700;
-      border: none;
-      background: #fff;
-      color: var(--navy);
-      cursor: pointer;
-      transition: all 0.15s;
-    }
-
-    .type-toggle button.active {
-      background: var(--navy);
-      color: #fff;
-    }
-
-    /* MODALS */
-    .modal {
-      position: fixed;
-      inset: 0;
-      z-index: 60;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-    }
-
-    .modal.hidden { display: none; }
-
-    .modal-backdrop {
-      position: absolute;
-      inset: 0;
-      background: rgba(6, 19, 37, 0.72);
-    }
-
-    .modal-box {
-      position: relative;
-      width: 100%;
-      max-width: 540px;
-      max-height: 90vh;
-      overflow-y: auto;
-      background: #ffffff;
-      border-radius: 12px;
-      box-shadow: var(--shadow-md);
-    }
-
-    .modal-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px 20px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .modal-close {
-      background: none;
-      border: none;
-      font-size: 1.6rem;
-      line-height: 1;
-      cursor: pointer;
-      color: var(--text-muted);
-    }
-
-    .modal-body { padding: 20px; }
-
-    .sample-text {
-      white-space: pre-line;
-      font-family: Georgia, serif;
-      font-size: 1.02rem;
-      line-height: 1.75;
-      color: var(--black);
-    }
-
-    /* ABOUT PAGE */
+    /* ABOUT & STATS */
     .about-hero {
       background: linear-gradient(135deg, var(--black) 0%, var(--navy-deep) 45%, var(--navy) 100%);
       color: #fff;
       padding: 40px 0;
     }
 
-    .revenue-cards {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-      margin: 24px 0;
-    }
-
-    .revenue-card {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .revenue-card h3 {
-      font-size: 1.15rem;
-      font-weight: 800;
-      margin-bottom: 10px;
-      color: var(--black);
-    }
-
-    .revenue-split {
-      display: flex;
-      gap: 12px;
-      margin: 12px 0;
-    }
-
-    .split-box {
-      flex: 1;
-      text-align: center;
-      padding: 14px 8px;
-      border-radius: 8px;
-      font-weight: 700;
-    }
-
-    .split-author { background: var(--success-bg); color: var(--success); }
-    .split-platform { background: #eff6ff; color: var(--navy); }
-
-    .split-pct { font-size: 1.6rem; display: block; }
-    .split-label { font-size: 0.8rem; }
-
-    /* AUTHOR DASHBOARD */
-    .stat-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      margin-bottom: 24px;
-    }
-
-    .stat-card {
-      background: var(--bg-surface);
-      border-radius: 10px;
-      padding: 16px;
-      text-align: center;
-    }
-
-    .stat-value {
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: var(--black);
-    }
-
-    .stat-label {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      font-weight: 600;
-    }
-
-    /* FOOTER */
-    .site-footer {
-      background: var(--black);
-      color: #d1d5db;
-      padding: 28px 0 88px;
-    }
-
-    .footer-inner {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .footer-brand {
-      color: #ffffff;
-      letter-spacing: 0.1em;
-      font-size: 1rem;
-    }
-
-    .footer-sub {
-      font-size: 0.86rem;
-      color: #9ca3af;
-      margin-top: 4px;
-    }
-
-    .footer-bottom {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      font-size: 0.8rem;
-      color: #6b7280;
-      margin-top: 8px;
-    }
-
-    .footer-editorial-link {
-      color: #93c5fd;
-      text-decoration: underline;
-    }
-
-    /* RESPONSIVE */
-    @media (min-width: 640px) {
-      .books-grid { grid-template-columns: repeat(2, 1fr); }
-      .search-bar-form { flex-direction: row; }
-      .search-bar-form .btn { min-width: 140px; }
-      .form-grid-2 { grid-template-columns: repeat(2, 1fr); }
-      .revenue-cards { grid-template-columns: repeat(2, 1fr); }
-      .stat-grid { grid-template-columns: repeat(4, 1fr); }
-    }
-
-    @media (min-width: 768px) {
-      .main-nav { display: flex; }
-      .mobile-bottom-nav { display: none; }
-      .main-content { padding-bottom: 40px; }
-      .site-footer { padding: 32px 0; }
-      .hero-title { font-size: 2.5rem; }
-      .books-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
-      .mini-hero-grid { grid-template-columns: 280px 1fr; gap: 36px; }
-      .mini-cover-frame { margin: 0; }
-      .mini-details-grid { grid-template-columns: 2fr 1fr; }
-    }
-
-    @media (min-width: 1024px) {
-      .books-grid { grid-template-columns: repeat(3, 1fr); }
-    }
-  </style>
-</head>
-<body>
-  <!-- Sticky Top Header -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="#/" class="brand-logo" data-link>
-        <svg class="brand-icon" viewBox="0 0 36 28" fill="none" aria-hidden="true">
-          <path d="M2 25L13.5 5L21 17.5L26 10.5L34 25H2Z" fill="#0B1F3A" stroke="#000000" stroke-width="2" stroke-linejoin="round"/>
-          <path d="M13.5 5L17.2 11.4L13.5 13.5L9.8 11.4L13.5 5Z" fill="#FFFFFF"/>
-        </svg>
-        <span class="brand-wordmark">MOUNTAIN</span>
-      </a>
-
-      <nav class="main-nav" aria-label="Primary Navigation">
-        <a href="#/" class="nav-link" data-link data-nav="home">Home</a>
-        <a href="#/search" class="nav-link" data-link data-nav="search">Search</a>
-        <a href="#/self-publishing" class="nav-link" data-link data-nav="publish">Publish</a>
-        <a href="#/about" class="nav-link" data-link data-nav="about">About & Earnings</a>
-        <a href="#/author" class="nav-link" data-link data-nav="author">Author Panel</a>
-      </nav>
-    </div>
-  </header>
-
-  <main id="app" class="main-content"></main>
-
-  <!-- Mobile Bottom Navigation -->
-  <nav class="mobile-bottom-nav" aria-label="Mobile Navigation">
-    <a href="#/" class="mobile-nav-item" data-link data-nav="home">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1v-9.5z"/></svg>
-      <span>Home</span>
-    </a>
-    <a href="#/search" class="mobile-nav-item" data-link data-nav="search">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strok
+    .revenue-cards { display: grid; grid-template-columns: 1fr; gap: 16px; margin: 24px 0; }
+    .revenue-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow-sm); }
+    .revenue-split { display: flex; gap: 12px; margin: 12px 0; }
+    
