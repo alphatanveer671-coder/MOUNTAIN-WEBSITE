@@ -17,11 +17,14 @@
       background: #fff; border-bottom: 1px solid #e5e7eb;
       height: 60px; display: flex; align-items: center; justify-content: space-between; padding: 0 16px;
     }
-    .logo { display: flex; align-items: center; gap: 8px; font-weight: 900; font-size: 1.15rem; letter-spacing: 0.08em; }
+    .logo { display: flex; align-items: center; gap: 8px; font-weight: 900; font-size: 1.15rem; letter-spacing: 0.08em; text-decoration: none; color: #000; }
     .badge-app { font-size: 0.75rem; font-weight: 700; background: #eff6ff; color: #0b1f3a; padding: 4px 10px; border-radius: 20px; }
-    
+
+    /* बिना JS के पेज बदलने का पक्का सिस्टम */
     .page { display: none; }
-    .page.active { display: block; }
+    #tab-home { display: block; }
+    body:has(.page:target) #tab-home { display: none; }
+    .page:target { display: block !important; }
 
     .hero {
       background: linear-gradient(135deg, #0a0a0c, #0b1f3a);
@@ -31,8 +34,8 @@
     .hero p { font-size: 0.92rem; color: #dbeafe; margin-bottom: 18px; }
     .btn-row { display: flex; gap: 10px; }
     .btn {
-      padding: 11px 18px; border-radius: 10px; font-weight: 700; font-size: 0.9rem;
-      border: none; cursor: pointer; text-align: center;
+      display: inline-block; padding: 11px 18px; border-radius: 10px; font-weight: 700; font-size: 0.9rem;
+      border: none; cursor: pointer; text-align: center; text-decoration: none;
     }
     .btn-white { background: #fff; color: #000; }
     .btn-outline { background: transparent; border: 1.5px solid rgba(255,255,255,0.5); color: #fff; }
@@ -74,34 +77,33 @@
     }
     .nav-item {
       display: flex; flex-direction: column; align-items: center; justify-content: center;
-      color: #6b7280; font-size: 0.68rem; font-weight: 700; gap: 3px; background: none; border: none; cursor: pointer;
+      color: #0b1f3a; font-size: 0.68rem; font-weight: 700; gap: 3px; text-decoration: none;
     }
-    .nav-item.active { color: #0b1f3a; }
     .nav-item svg { width: 22px; height: 22px; }
   </style>
 </head>
 <body>
 
   <header class="header">
-    <div class="logo">
+    <a href="#tab-home" class="logo">
       <svg width="28" height="22" viewBox="0 0 36 28" fill="none">
         <path d="M2 25L13.5 5L21 17.5L26 10.5L34 25H2Z" fill="#0B1F3A" stroke="#000" stroke-width="2"/>
         <path d="M13.5 5L17.2 11.4L13.5 13.5L9.8 11.4L13.5 5Z" fill="#FFF"/>
       </svg>
       <span>MOUNTAIN</span>
-    </div>
+    </a>
     <span class="badge-app">APP v1.0</span>
   </header>
 
   <!-- HOME TAB -->
-  <div id="tab-home" class="page active">
+  <div id="tab-home" class="page">
     <div class="hero">
       <div class="container">
         <h1>Where Authors Rise.</h1>
         <p>Publish eBooks & Research Files directly to readers. Earn 60%–70% royalty on every sale.</p>
         <div class="btn-row">
-          <button class="btn btn-white" onclick="openTab('publish')">+ Publish Now</button>
-          <button class="btn btn-outline" onclick="openTab('search')">Explore</button>
+          <a href="#tab-publish" class="btn btn-white">+ Publish Now</a>
+          <a href="#tab-search" class="btn btn-outline">Explore</a>
         </div>
       </div>
     </div>
@@ -114,7 +116,7 @@
           <div class="author">By Aarav Sharma</div>
           <div class="price">₹299</div>
           <p class="desc">A practical guide to deep work and mental clarity for modern creators.</p>
-          <button class="btn btn-navy" onclick="alert('Order placed for: The Peak of Focus')">Buy Now</button>
+          <a href="#tab-earnings" class="btn btn-navy">Buy Now</a>
         </div>
       </div>
       <div class="card">
@@ -124,7 +126,7 @@
           <div class="author">By Dr. Meera Nair</div>
           <div class="price">₹499</div>
           <p class="desc">Comprehensive data analysis on emerging AI economies and digital publishing.</p>
-          <button class="btn btn-navy" onclick="alert('Order placed for: AI & Future Markets 2026')">Buy Now</button>
+          <a href="#tab-earnings" class="btn btn-navy">Buy Now</a>
         </div>
       </div>
     </div>
@@ -181,34 +183,35 @@
         <div class="stat"><strong>68</strong><span>Copies Sold</span></div>
         <div class="stat"><strong>65%</strong><span>Avg Royalty</span></div>
       </div>
-      <button class="btn btn-navy" onclick="openTab('publish')">+ Upload New Title</button>
+      <a href="#tab-publish" class="btn btn-navy">+ Upload New Title</a>
     </div>
   </div>
 
-  <!-- BOTTOM NAVIGATION -->
+  <!-- BOTTOM NAVIGATION (बिना JS वाले पक्के लिंक) -->
   <nav class="bottom-nav">
-    <button class="nav-item active" id="btn-home" onclick="openTab('home')">
+    <a href="#tab-home" class="nav-item">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1v-9.5z"/></svg>
       <span>Home</span>
-    </button>
-    <button class="nav-item" id="btn-search" onclick="openTab('search')">
+    </a>
+    <a href="#tab-search" class="nav-item">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
       <span>Search</span>
-    </button>
-    <button class="nav-item" id="btn-publish" onclick="openTab('publish')">
+    </a>
+    <a href="#tab-publish" class="nav-item">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
       <span>Publish</span>
-    </button>
-    <button class="nav-item" id="btn-earnings" onclick="openTab('earnings')">
+    </a>
+    <a href="#tab-earnings" class="nav-item">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
       <span>Earnings</span>
-    </button>
-    <button class="nav-item" id="btn-author" onclick="openTab('author')">
+    </a>
+    <a href="#tab-author" class="nav-item">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
       <span>Author</span>
-    </button>
+    </a>
   </nav>
 
   <script>
-    function openTab(name) {
+    function searchBooks(val) {
+      document.querySelectorAll('.book-item').forEach(item => {
     
