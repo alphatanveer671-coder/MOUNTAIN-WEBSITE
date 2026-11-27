@@ -10,7 +10,7 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background: #f4f6f9;
       color: #111827;
-      padding-bottom: 80px;
+      padding-bottom: 85px;
     }
     .header {
       position: sticky; top: 0; z-index: 50;
@@ -20,7 +20,6 @@
     .logo { display: flex; align-items: center; gap: 8px; font-weight: 900; font-size: 1.15rem; letter-spacing: 0.08em; text-decoration: none; color: #000; }
     .badge-app { font-size: 0.75rem; font-weight: 700; background: #eff6ff; color: #0b1f3a; padding: 4px 10px; border-radius: 20px; }
 
-    /* बिना JS के पेज बदलने का पक्का सिस्टम */
     .page { display: none; }
     #tab-home { display: block; }
     body:has(.page:target) #tab-home { display: none; }
@@ -34,15 +33,15 @@
     .hero p { font-size: 0.92rem; color: #dbeafe; margin-bottom: 18px; }
     .btn-row { display: flex; gap: 10px; }
     .btn {
-      display: inline-block; padding: 11px 18px; border-radius: 10px; font-weight: 700; font-size: 0.9rem;
+      display: inline-block; padding: 12px 18px; border-radius: 10px; font-weight: 700; font-size: 0.92rem;
       border: none; cursor: pointer; text-align: center; text-decoration: none;
     }
     .btn-white { background: #fff; color: #000; }
     .btn-outline { background: transparent; border: 1.5px solid rgba(255,255,255,0.5); color: #fff; }
     .btn-navy { background: #0b1f3a; color: #fff; width: 100%; }
 
-    .container { padding: 0 16px; max-width: 1000px; margin: 0 auto; }
-    .sec-title { font-size: 1.2rem; font-weight: 800; margin: 16px 0 12px; }
+    .container { padding: 0 16px; max-width: 900px; margin: 0 auto; }
+    .sec-title { font-size: 1.25rem; font-weight: 800; margin: 18px 0 12px; color: #0a0a0c; }
 
     .card {
       background: #fff; border-radius: 12px; overflow: hidden;
@@ -50,22 +49,41 @@
     }
     .cover {
       background: linear-gradient(135deg, #061325, #1e3a8a);
-      color: #fff; padding: 26px 16px; text-align: center; font-weight: 800; font-size: 1.15rem; position: relative;
+      color: #fff; height: 180px; display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 1.15rem; position: relative; overflow: hidden; text-align: center; padding: 12px;
     }
+    .cover img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
     .tag {
-      position: absolute; top: 10px; right: 10px; background: rgba(255,255,255,0.2);
-      padding: 3px 8px; border-radius: 6px; font-size: 0.7rem;
+      position: absolute; top: 10px; right: 10px; z-index: 2; background: rgba(0,0,0,0.75);
+      color: #fff; padding: 4px 10px; border-radius: 6px; font-size: 0.72rem; font-weight: 700;
     }
     .card-body { padding: 16px; }
-    .card-body h3 { font-size: 1.05rem; font-weight: 800; margin-bottom: 4px; }
+    .card-body h3 { font-size: 1.08rem; font-weight: 800; margin-bottom: 4px; }
     .author { font-size: 0.85rem; color: #0b1f3a; font-weight: 600; margin-bottom: 6px; }
     .price { font-size: 1.2rem; font-weight: 800; margin-bottom: 8px; }
     .desc { font-size: 0.86rem; color: #4b5563; margin-bottom: 14px; }
 
+    /* FORM & UPLOAD STYLES */
+    .form-label { display: block; font-size: 0.84rem; font-weight: 700; margin-bottom: 6px; color: #111827; }
     .input {
       width: 100%; padding: 12px; border: 1.5px solid #cbd5e1; border-radius: 10px;
-      font-size: 0.95rem; margin-bottom: 12px; background: #fff;
+      font-size: 0.95rem; margin-bottom: 14px; background: #fff; font-family: inherit;
     }
+    .upload-box {
+      border: 2px dashed #94a3b8; border-radius: 10px; padding: 16px; text-align: center;
+      background: #f8fafc; margin-bottom: 14px; cursor: pointer;
+    }
+    .upload-box p { font-size: 0.85rem; font-weight: 700; color: #0b1f3a; margin-bottom: 4px; }
+    .upload-box span { font-size: 0.75rem; color: #64748b; display: block; margin-bottom: 8px; }
+    .file-input { width: 100%; font-size: 0.85rem; }
+
+    .type-selector { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+    .type-option {
+      border: 1.5px solid #cbd5e1; border-radius: 10px; padding: 12px; text-align: center;
+      cursor: pointer; background: #fff; font-weight: 700; font-size: 0.88rem;
+    }
+    .type-option input { margin-right: 6px; }
+
     .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
     .stat { background: #fff; padding: 16px; border-radius: 12px; text-align: center; border: 1px solid #e5e7eb; }
     .stat strong { display: block; font-size: 1.4rem; color: #0b1f3a; }
@@ -100,7 +118,7 @@
     <div class="hero">
       <div class="container">
         <h1>Where Authors Rise.</h1>
-        <p>Publish eBooks & Research Files directly to readers. Earn 60%–70% royalty on every sale.</p>
+        <p>Publish eBooks & PDF Research Files directly to readers. Earn 60%–70% royalty on every sale.</p>
         <div class="btn-row">
           <a href="#tab-publish" class="btn btn-white">+ Publish Now</a>
           <a href="#tab-search" class="btn btn-outline">Explore</a>
@@ -120,7 +138,7 @@
         </div>
       </div>
       <div class="card">
-        <div class="cover"><span class="tag">Research</span>AI & Future Markets 2026</div>
+        <div class="cover"><span class="tag">PDF Research</span>AI & Future Markets 2026</div>
         <div class="card-body">
           <h3>AI & Future Markets 2026</h3>
           <div class="author">By Dr. Meera Nair</div>
@@ -136,82 +154,56 @@
   <div id="tab-search" class="page">
     <div class="container">
       <h2 class="sec-title">Search Library</h2>
-      <input type="text" class="input" placeholder="Search book title..." onkeyup="searchBooks(this.value)" />
+      <input type="text" class="input" placeholder="Search book or PDF title..." onkeyup="searchBooks(this.value)" />
       <div id="searchArea">
-        <div class="card book-item"><div class="card-body"><h3>The Peak of Focus</h3><div class="author">Aarav Sharma • ₹299</div></div></div>
-        <div class="card book-item"><div class="card-body"><h3>AI & Future Markets 2026</h3><div class="author">Dr. Meera Nair • ₹499</div></div></div>
-        <div class="card book-item"><div class="card-body"><h3>Zero to Independent Author</h3><div class="author">Tanveer Alam • ₹199</div></div></div>
+        <div class="card book-item"><div class="card-body"><h3>The Peak of Focus</h3><div class="author">Aarav Sharma • eBook • ₹299</div></div></div>
+        <div class="card book-item"><div class="card-body"><h3>AI & Future Markets 2026</h3><div class="author">Dr. Meera Nair • PDF Research • ₹499</div></div></div>
+        <div class="card book-item"><div class="card-body"><h3>Zero to Independent Author</h3><div class="author">Tanveer Alam • eBook • ₹199</div></div></div>
       </div>
     </div>
   </div>
 
-  <!-- PUBLISH TAB -->
+  <!-- PUBLISH TAB (पूरा अपग्रेडेड सिस्टम) -->
   <div id="tab-publish" class="page">
     <div class="container">
-      <h2 class="sec-title">Publish Your Work</h2>
+      <h2 class="sec-title">Publish eBook or PDF</h2>
       <div class="card"><div class="card-body">
-        <input type="text" id="tTitle" class="input" placeholder="Book / File Title" />
-        <input type="text" id="tAuthor" class="input" placeholder="Author Name" />
-        <input type="number" id="tPrice" class="input" placeholder="Price (₹)" />
-        <button class="btn btn-navy" onclick="addNewBook()">Publish Now</button>
-      </div></div>
-    </div>
-  </div>
 
-  <!-- EARNINGS TAB -->
-  <div id="tab-earnings" class="page">
-    <div class="container">
-      <h2 class="sec-title">Author Royalty Model</h2>
-      <div class="card"><div class="card-body">
-        <h3>Standard eBooks — 60% Royalty</h3>
-        <p class="desc" style="margin-top:6px;">Authors keep 60% of every eBook sale with direct weekly payouts.</p>
-      </div></div>
-      <div class="card"><div class="card-body">
-        <h3>Research Files — 70% Royalty</h3>
-        <p class="desc" style="margin-top:6px;">Exclusive research and data files earn 70% direct author revenue.</p>
-      </div></div>
-    </div>
-  </div>
+        <label class="form-label">1. Select Format (क्या पब्लिश करना है?)</label>
+        <div class="type-selector">
+          <label class="type-option">
+            <input type="radio" name="pubFormat" value="eBook (60% Royalty)" checked /> 📖 eBook
+          </label>
+          <label class="type-option">
+            <input type="radio" name="pubFormat" value="PDF File (70% Royalty)" /> 📄 PDF File
+          </label>
+        </div>
 
-  <!-- AUTHOR TAB -->
-  <div id="tab-author" class="page">
-    <div class="container">
-      <h2 class="sec-title">Author Dashboard</h2>
-      <div class="stat-grid">
-        <div class="stat"><strong>3</strong><span>Active Titles</span></div>
-        <div class="stat"><strong>₹14,250</strong><span>Total Earnings</span></div>
-        <div class="stat"><strong>68</strong><span>Copies Sold</span></div>
-        <div class="stat"><strong>65%</strong><span>Avg Royalty</span></div>
-      </div>
-      <a href="#tab-publish" class="btn btn-navy">+ Upload New Title</a>
-    </div>
-  </div>
+        <label class="form-label">2. Book / PDF Title (किताब या पीडीएफ का नाम)</label>
+        <input type="text" id="tTitle" class="input" placeholder="उदाहरण: सफलता के सूत्र" />
 
-  <!-- BOTTOM NAVIGATION (बिना JS वाले पक्के लिंक) -->
-  <nav class="bottom-nav">
-    <a href="#tab-home" class="nav-item">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1v-9.5z"/></svg>
-      <span>Home</span>
-    </a>
-    <a href="#tab-search" class="nav-item">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-      <span>Search</span>
-    </a>
-    <a href="#tab-publish" class="nav-item">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
-      <span>Publish</span>
-    </a>
-    <a href="#tab-earnings" class="nav-item">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-      <span>Earnings</span>
-    </a>
-    <a href="#tab-author" class="nav-item">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      <span>Author</span>
-    </a>
-  </nav>
+        <label class="form-label">3. Author Name (लेखक का नाम)</label>
+        <input type="text" id="tAuthor" class="input" placeholder="अपना पूरा नाम लिखें" />
 
-  <script>
-    function searchBooks(val) {
-      document.querySelectorAll('.book-item').forEach(item => {
-    
+        <label class="form-label">4. Author Email (रॉयल्टी और संपर्क के लिए ईमेल)</label>
+        <input type="email" id="tEmail" class="input" placeholder="author@example.com" />
+
+        <label class="form-label">5. Upload Cover Photo (कवर फोटो चुनें)</label>
+        <div class="upload-box">
+          <p>🖼️ किताब का कवर फोटो अपलोड करें</p>
+          <span>JPG, PNG या WebP फॉर्मेट</span>
+          <input type="file" id="tCover" class="file-input" accept="image/*" />
+        </div>
+
+        <label class="form-label">6. Upload PDF / eBook File (असली फाइल अपलोड करें)</label>
+        <div class="upload-box">
+          <p>📂 अपनी PDF या eBook फाइल चुनें</p>
+          <span>केवल .PDF, .EPUB या .DOCX फाइल</span>
+          <input type="file" id="tPdfFile" class="file-input" accept=".pdf,.epub,.doc,.docx" />
+        </div>
+
+        <label class="form-label">7. Price in INR (कीमत ₹ में)</label>
+        <input type="number" id="tPrice" class="input" placeholder="299" />
+
+        <label class="form-label">8. Description (किताब के बारे में जानकारी)</label>
+        
