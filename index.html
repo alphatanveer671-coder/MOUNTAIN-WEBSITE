@@ -2,13 +2,14 @@
 <html lang="hi">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>MOUNTAIN - Where Authors Rise</title>
-  <meta name="description" content="MOUNTAIN - Where Authors Rise. Digital eBooks & Research Files marketplace. Authors earn 60-70% revenue." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#0b1f3a" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <title>MOUNTAIN App - Where Authors Rise</title>
   <style>
     :root {
       --bg-white: #ffffff;
-      --bg-surface: #f7f9fc;
+      --bg-surface: #f4f6f9;
       --navy: #0b1f3a;
       --navy-deep: #061325;
       --navy-accent: #163a6b;
@@ -16,326 +17,248 @@
       --text-main: #111827;
       --text-muted: #4b5563;
       --border: #e5e7eb;
-      --border-strong: #cbd5e1;
       --success: #065f46;
       --success-bg: #ecfdf5;
-      --radius: 10px;
-      --shadow-sm: 0 2px 8px rgba(11, 31, 58, 0.06);
-      --shadow-md: 0 12px 32px rgba(11, 31, 58, 0.14);
+      --radius: 12px;
+      --shadow-sm: 0 2px 10px rgba(11, 31, 58, 0.08);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 
-    html, body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif;
-      background: var(--bg-white);
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg-surface);
       color: var(--text-main);
       line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
+      padding-bottom: 75px;
     }
 
-    a { color: inherit; text-decoration: none; }
+    .container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 16px; }
 
-    .container {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 16px;
-    }
-
-    /* HEADER */
-    .site-header {
+    /* APP TOP BAR */
+    .app-header {
       position: sticky;
       top: 0;
-      z-index: 40;
-      background: var(--bg-white);
+      z-index: 50;
+      background: #ffffff;
       border-bottom: 1px solid var(--border);
-    }
-
-    .header-inner {
-      height: 64px;
+      height: 60px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
+      padding: 0 16px;
     }
 
-    .brand-logo {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      cursor: pointer;
-    }
-
-    .brand-icon { width: 34px; height: 26px; }
-
-    .brand-wordmark {
-      font-size: 1.2rem;
-      font-weight: 900;
-      letter-spacing: 0.1em;
-      color: var(--black);
-    }
-
-    .main-nav { display: none; align-items: center; gap: 4px; }
-
-    .nav-link {
-      padding: 7px 12px;
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: var(--text-main);
-      border-radius: 8px;
-    }
-
-    .nav-link.active { background: var(--navy); color: #ffffff; }
-
-    /* Mobile Bottom Nav */
-    .mobile-bottom-nav {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 40;
-      background: #ffffff;
-      border-top: 1px solid var(--border);
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      padding-bottom: env(safe-area-inset-bottom);
-    }
-
-    .mobile-nav-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 2px;
-      padding: 8px 2px;
-      font-size: 0.65rem;
-      font-weight: 600;
-      color: var(--text-muted);
-    }
-
-    .mobile-nav-item svg { width: 20px; height: 20px; }
-    .mobile-nav-item.active { color: var(--navy); }
-
-    .main-content {
-      min-height: calc(100vh - 180px);
-      padding-bottom: 84px;
-    }
+    .brand-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .brand-wordmark { font-size: 1.15rem; font-weight: 900; letter-spacing: 0.08em; color: var(--black); }
 
     /* HERO */
-    .hero-banner {
-      background: linear-gradient(135deg, var(--black) 0%, var(--navy-deep) 45%, var(--navy) 100%);
+    .hero-card {
+      background: linear-gradient(135deg, var(--black), var(--navy));
       color: #ffffff;
-      padding: 40px 0 46px;
+      padding: 28px 20px;
+      border-radius: 0 0 20px 20px;
+      margin-bottom: 20px;
     }
 
-    .hero-eyebrow {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #93c5fd;
-      margin-bottom: 10px;
-    }
-
-    .hero-title {
-      font-size: 1.9rem;
-      line-height: 1.15;
-      font-weight: 800;
-      margin-bottom: 12px;
-    }
-
-    .hero-subtitle {
-      font-size: 1rem;
-      color: #dbeafe;
-      max-width: 640px;
-      margin-bottom: 22px;
-    }
-
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .hero-title { font-size: 1.65rem; font-weight: 800; margin-bottom: 8px; }
+    .hero-sub { font-size: 0.92rem; color: #dbeafe; margin-bottom: 18px; }
 
     /* BUTTONS */
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.92rem;
-      font-weight: 700;
       padding: 11px 18px;
-      border-radius: 8px;
-      border: 1.5px solid transparent;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      border: none;
       cursor: pointer;
+      text-decoration: none;
     }
-
-    .btn-primary { background: var(--navy); color: #ffffff; }
     .btn-light { background: #ffffff; color: var(--black); }
-    .btn-outline-light { background: transparent; color: #ffffff; border-color: rgba(255,255,255,0.45); }
-    .btn-block { width: 100%; }
-    .btn-sm { padding: 8px 14px; font-size: 0.85rem; }
+    .btn-primary { background: var(--navy); color: #ffffff; width: 100%; }
+    .btn-outline { background: transparent; border: 1.5px solid rgba(255,255,255,0.5); color: #fff; }
 
-    /* SECTIONS & GRID */
-    .section-block { padding: 28px 0; }
-
-    .section-header {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      margin-bottom: 18px;
-      border-bottom: 2px solid var(--bg-surface);
-      padding-bottom: 10px;
-    }
-
-    .section-title { font-size: 1.3rem; font-weight: 800; color: var(--black); }
-    .section-count { font-size: 0.85rem; font-weight: 600; color: var(--text-muted); }
-
+    /* GRID & CARDS */
+    .section-title { font-size: 1.2rem; font-weight: 800; margin-bottom: 14px; color: var(--black); }
     .books-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
 
     .book-card {
       background: #ffffff;
-      border: 1px solid var(--border);
       border-radius: var(--radius);
       overflow: hidden;
-      display: flex;
-      flex-direction: column;
       box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border);
     }
 
-    .book-cover-wrap {
-      position: relative;
-      background: linear-gradient(135deg, #061325, #163a6b);
-      aspect-ratio: 4 / 3;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-weight: 800;
-      font-size: 1.25rem;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .badge-new {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background: var(--black);
+    .book-cover {
+      background: linear-gradient(135deg, #061325, #1e3a8a);
       color: #ffffff;
-      font-size: 0.7rem;
+      padding: 24px 16px;
+      text-align: center;
       font-weight: 800;
-      padding: 4px 8px;
-      border-radius: 4px;
+      font-size: 1.15rem;
+      position: relative;
     }
 
-    .badge-type {
+    .badge {
       position: absolute;
       top: 10px;
       right: 10px;
-      font-size: 0.68rem;
-      font-weight: 800;
-      padding: 4px 8px;
-      border-radius: 4px;
-      text-transform: uppercase;
+      background: rgba(255,255,255,0.2);
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 0.7rem;
     }
 
-    .badge-ebook { background: #1e3a5f; color: #93c5fd; }
-    .badge-file { background: #065f46; color: #a7f3d0; }
+    .book-body { padding: 16px; }
+    .book-title { font-size: 1.05rem; font-weight: 800; margin-bottom: 4px; }
+    .book-author { font-size: 0.85rem; color: var(--navy); font-weight: 600; margin-bottom: 8px; }
+    .book-price { font-size: 1.2rem; font-weight: 800; color: var(--black); margin-bottom: 8px; }
+    .book-desc { font-size: 0.86rem; color: var(--text-muted); margin-bottom: 14px; }
 
-    .book-body { padding: 14px; display: flex; flex-direction: column; flex: 1; }
-    .book-title { font-size: 1.05rem; font-weight: 800; color: var(--black); margin-bottom: 3px; }
-    .book-author { font-size: 0.86rem; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
-    .book-price { font-size: 1.18rem; font-weight: 800; color: var(--black); margin-bottom: 8px; }
-    .book-short-desc { font-size: 0.86rem; color: var(--text-muted); margin-bottom: 14px; flex: 1; }
-
-    /* SEARCH & FORMS */
-    .search-hero { background: var(--bg-surface); border-bottom: 1px solid var(--border); padding: 28px 0; }
-    .search-input {
-      width: 100%;
-      height: 52px;
-      padding: 0 16px;
-      font-size: 1rem;
-      border: 2px solid var(--navy);
-      border-radius: 10px;
-      margin-top: 12px;
-    }
-
-    .form-card {
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px;
-      max-width: 780px;
-      margin: 0 auto;
-    }
-
-    .form-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
-    .form-group label { display: block; font-size: 0.86rem; font-weight: 700; margin-bottom: 6px; }
+    /* FORMS */
+    .card-box { background: #fff; padding: 20px; border-radius: var(--radius); box-shadow: var(--shadow-sm); }
+    .form-group { margin-bottom: 14px; }
+    .form-group label { display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 6px; }
     .form-control {
       width: 100%;
-      padding: 11px 12px;
+      padding: 12px;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 10px;
       font-size: 0.95rem;
-      border: 1.5px solid var(--border-strong);
-      border-radius: 8px;
     }
 
     .alert-success {
       background: var(--success-bg);
       color: var(--success);
-      border: 1px solid #a7f3d0;
-      padding: 14px 16px;
+      padding: 12px;
       border-radius: 8px;
-      font-weight: 600;
-      margin-bottom: 16px;
+      font-weight: 700;
+      margin-bottom: 14px;
     }
 
-    /* ABOUT & STATS */
-    .about-hero {
-      background: linear-gradient(135deg, var(--black) 0%, var(--navy-deep) 45%, var(--navy) 100%);
-      color: #fff;
-      padding: 40px 0;
+    /* BOTTOM APP NAVIGATION */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #ffffff;
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      height: 64px;
+      z-index: 50;
     }
 
-    .revenue-cards { display: grid; grid-template-columns: 1fr; gap: 16px; margin: 24px 0; }
-    .revenue-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
-    .revenue-split { display: flex; gap: 12px; margin: 12px 0; }
-    .split-box { flex: 1; text-align: center; padding: 14px 8px; border-radius: 8px; font-weight: 700; }
-    .split-author { background: var(--success-bg); color: var(--success); }
-    .split-platform { background: #eff6ff; color: var(--navy); }
-    .split-pct { font-size: 1.6rem; display: block; }
-
-    .stat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 24px; }
-    .stat-card { background: var(--bg-surface); border-radius: 10px; padding: 16px; text-align: center; }
-    .stat-value { font-size: 1.5rem; font-weight: 800; color: var(--black); }
-    .stat-label { font-size: 0.8rem; color: var(--text-muted); font-weight: 600; }
-
-    .site-footer { background: var(--black); color: #d1d5db; padding: 28px 0 88px; }
-
-    @media (min-width: 640px) {
-      .books-grid { grid-template-columns: repeat(2, 1fr); }
-      .revenue-cards { grid-template-columns: repeat(2, 1fr); }
-      .stat-grid { grid-template-columns: repeat(4, 1fr); }
+    .nav-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.68rem;
+      font-weight: 700;
+      gap: 3px;
     }
+
+    .nav-btn.active { color: var(--navy); }
+    .nav-btn svg { width: 22px; height: 22px; }
+
+    /* STATS */
+    .stat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 20px; }
+    .stat-box { background: #fff; padding: 16px; border-radius: var(--radius); text-align: center; box-shadow: var(--shadow-sm); }
+    .stat-num { font-size: 1.4rem; font-weight: 900; color: var(--navy); }
+    .stat-txt { font-size: 0.78rem; color: var(--text-muted); font-weight: 600; }
 
     @media (min-width: 768px) {
-      .main-nav { display: flex; }
-      .mobile-bottom-nav { display: none; }
-      .main-content { padding-bottom: 40px; }
-      .site-footer { padding: 32px 0; }
-      .hero-title { font-size: 2.5rem; }
-      .books-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+      .books-grid { grid-template-columns: repeat(3, 1fr); }
     }
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="#/" class="brand-logo">
-        <svg class="brand-icon" viewBox="0 0 36 28" fill="none">
-          <path d="M2 25L13.5 5L21 17.5L26 10.5L34 25H2Z" fill="#0B1F3A" stroke="#000000" stroke-width="2" stroke-linejoin="round"/>
-          <path d="M13.5 5L17.2 11.4L13.5 13.5L9.8 11.4L13.5 5Z" fill="#FFFFFF"/>
-        </svg>
-        <span class="brand-wordmark">MOUNTAIN</span>
-      </a>
 
-      <nav class="main-nav">
-        
+  <!-- Top Header -->
+  <header class="app-header">
+    <a href="#home" class="brand-logo" onclick="navigate('home')">
+      <svg width="30" height="24" viewBox="0 0 36 28" fill="none">
+        <path d="M2 25L13.5 5L21 17.5L26 10.5L34 25H2Z" fill="#0B1F3A" stroke="#000" stroke-width="2"/>
+        <path d="M13.5 5L17.2 11.4L13.5 13.5L9.8 11.4L13.5 5Z" fill="#FFF"/>
+      </svg>
+      <span class="brand-wordmark">MOUNTAIN</span>
+    </a>
+    <span style="font-size:0.75rem; font-weight:700; background:#eff6ff; color:#0b1f3a; padding:4px 10px; border-radius:20px;">APP v1.0</span>
+  </header>
+
+  <!-- MAIN SCREEN CONTAINER (यहीं सारा कंटेंट दिखेगा) -->
+  <main id="app"></main>
+
+  <!-- Bottom App Navigation -->
+  <nav class="bottom-nav">
+    <a href="#home" class="nav-btn active" id="nav-home" onclick="navigate('home')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1v-9.5z"/></svg>
+      <span>Home</span>
+    </a>
+    <a href="#search" class="nav-btn" id="nav-search" onclick="navigate('search')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <span>Search</span>
+    </a>
+    <a href="#publish" class="nav-btn" id="nav-publish" onclick="navigate('publish')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+      <span>Publish</span>
+    </a>
+    <a href="#earnings" class="nav-btn" id="nav-earnings" onclick="navigate('earnings')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      <span>Earnings</span>
+    </a>
+    <a href="#author" class="nav-btn" id="nav-author" onclick="navigate('author')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      <span>Author</span>
+    </a>
+  </nav>
+
+  <script>
+    const publications = [
+      { id: 1, title: "The Peak of Focus", author: "Aarav Sharma", price: "₹299", type: "eBook", desc: "A practical guide to deep work and mental clarity for creators." },
+      { id: 2, title: "AI & Future Markets 2026", author: "Dr. Meera Nair", price: "₹499", type: "Research", desc: "Data analysis on emerging AI economies and digital publishing." },
+      { id: 3, title: "Zero to Independent Author", author: "Tanveer Alam", price: "₹199", type: "eBook", desc: "Blueprint on writing and earning up to 70% royalties online." }
+    ];
+
+    function navigate(page) {
+      document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+      const activeBtn = document.getElementById('nav-' + page);
+      if (activeBtn) activeBtn.classList.add('active');
+
+      const app = document.getElementById('app');
+
+      if (page === 'home') {
+        app.innerHTML = `
+          <div class="hero-card">
+            <div class="container">
+              <h1 class="hero-title">Where Authors Rise.</h1>
+              <p class="hero-sub">Publish eBooks & Research Files directly to readers. Keep 60%–70% of every sale.</p>
+              <div style="display:flex; gap:10px;">
+                <button class="btn btn-light" onclick="navigate('publish')">+ Publish Now</button>
+                <button class="btn btn-outline" onclick="navigate('search')">Explore</button>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <h2 class="section-title">Featured Releases (${publications.length})</h2>
+            <div class="books-grid">
+              ${publications.map(b => `
+                <div class="book-card">
+                  <div class="book-cover">
+                    <span class="badge">${b.type}</span>
+                    ${b.title}
+                  </div>
+                  <div class="book-body">
+                    <div class="book-title">${b.title}</div>
+                    <div class="book-author">By ${b.author}</div>
+                    <div class="book-price">${b.price}</div>
+                    <p class="book-desc">${b.desc}</p>
+    
