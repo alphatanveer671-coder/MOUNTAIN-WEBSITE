@@ -1,209 +1,1265 @@
+
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>MOUNTAIN - Where Authors Rise</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #f4f6f9;
-      color: #111827;
-      padding-bottom: 85px;
-    }
-    .header {
-      position: sticky; top: 0; z-index: 50;
-      background: #fff; border-bottom: 1px solid #e5e7eb;
-      height: 60px; display: flex; align-items: center; justify-content: space-between; padding: 0 16px;
-    }
-    .logo { display: flex; align-items: center; gap: 8px; font-weight: 900; font-size: 1.15rem; letter-spacing: 0.08em; text-decoration: none; color: #000; }
-    .badge-app { font-size: 0.75rem; font-weight: 700; background: #eff6ff; color: #0b1f3a; padding: 4px 10px; border-radius: 20px; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101827">
+<meta name="description" content="Premium Research, Historical, Scientific and Educational Study Files.">
+<title>RESEARCH VAULT | Premium Knowledge Files</title>
 
-    .page { display: none; }
-    #tab-home { display: block; }
-    body:has(.page:target) #tab-home { display: none; }
-    .page:target { display: block !important; }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-    .hero {
-      background: linear-gradient(135deg, #0a0a0c, #0b1f3a);
-      color: #fff; padding: 30px 16px; border-radius: 0 0 20px 20px; margin-bottom: 20px;
-    }
-    .hero h1 { font-size: 1.7rem; font-weight: 800; margin-bottom: 8px; }
-    .hero p { font-size: 0.92rem; color: #dbeafe; margin-bottom: 18px; }
-    .btn-row { display: flex; gap: 10px; }
-    .btn {
-      display: inline-block; padding: 12px 18px; border-radius: 10px; font-weight: 700; font-size: 0.92rem;
-      border: none; cursor: pointer; text-align: center; text-decoration: none;
-    }
-    .btn-white { background: #fff; color: #000; }
-    .btn-outline { background: transparent; border: 1.5px solid rgba(255,255,255,0.5); color: #fff; }
-    .btn-navy { background: #0b1f3a; color: #fff; width: 100%; }
+:root{
+    --dark:#101827;
+    --dark2:#17263a;
+    --gold:#d6ad62;
+    --light:#f5f6f8;
+    --white:#ffffff;
+    --text:#263347;
+    --muted:#7a8494;
+    --green:#19ad69;
+}
 
-    .container { padding: 0 16px; max-width: 900px; margin: 0 auto; }
-    .sec-title { font-size: 1.25rem; font-weight: 800; margin: 18px 0 12px; color: #0a0a0c; }
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:var(--light);
+    color:var(--text);
+}
 
-    .card {
-      background: #fff; border-radius: 12px; overflow: hidden;
-      border: 1px solid #e5e7eb; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-    .cover {
-      background: linear-gradient(135deg, #061325, #1e3a8a);
-      color: #fff; height: 180px; display: flex; align-items: center; justify-content: center;
-      font-weight: 800; font-size: 1.15rem; position: relative; overflow: hidden; text-align: center; padding: 12px;
-    }
-    .cover img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
-    .tag {
-      position: absolute; top: 10px; right: 10px; z-index: 2; background: rgba(0,0,0,0.75);
-      color: #fff; padding: 4px 10px; border-radius: 6px; font-size: 0.72rem; font-weight: 700;
-    }
-    .card-body { padding: 16px; }
-    .card-body h3 { font-size: 1.08rem; font-weight: 800; margin-bottom: 4px; }
-    .author { font-size: 0.85rem; color: #0b1f3a; font-weight: 600; margin-bottom: 6px; }
-    .price { font-size: 1.2rem; font-weight: 800; margin-bottom: 8px; }
-    .desc { font-size: 0.86rem; color: #4b5563; margin-bottom: 14px; }
+header{
+    background:var(--dark);
+    padding:20px 6%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    flex-wrap:wrap;
+}
 
-    /* FORM & UPLOAD STYLES */
-    .form-label { display: block; font-size: 0.84rem; font-weight: 700; margin-bottom: 6px; color: #111827; }
-    .input {
-      width: 100%; padding: 12px; border: 1.5px solid #cbd5e1; border-radius: 10px;
-      font-size: 0.95rem; margin-bottom: 14px; background: #fff; font-family: inherit;
-    }
-    .upload-box {
-      border: 2px dashed #94a3b8; border-radius: 10px; padding: 16px; text-align: center;
-      background: #f8fafc; margin-bottom: 14px; cursor: pointer;
-    }
-    .upload-box p { font-size: 0.85rem; font-weight: 700; color: #0b1f3a; margin-bottom: 4px; }
-    .upload-box span { font-size: 0.75rem; color: #64748b; display: block; margin-bottom: 8px; }
-    .file-input { width: 100%; font-size: 0.85rem; }
+.logo{
+    color:var(--gold);
+    font-size:25px;
+    font-weight:900;
+    letter-spacing:1.5px;
+}
 
-    .type-selector { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
-    .type-option {
-      border: 1.5px solid #cbd5e1; border-radius: 10px; padding: 12px; text-align: center;
-      cursor: pointer; background: #fff; font-weight: 700; font-size: 0.88rem;
-    }
-    .type-option input { margin-right: 6px; }
+.logo span{
+    color:white;
+}
 
-    .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
-    .stat { background: #fff; padding: 16px; border-radius: 12px; text-align: center; border: 1px solid #e5e7eb; }
-    .stat strong { display: block; font-size: 1.4rem; color: #0b1f3a; }
-    .stat span { font-size: 0.8rem; color: #4b5563; font-weight: 600; }
+nav{
+    display:flex;
+    gap:8px;
+}
 
-    .bottom-nav {
-      position: fixed; bottom: 0; left: 0; right: 0; background: #fff;
-      border-top: 1px solid #e5e7eb; display: grid; grid-template-columns: repeat(5, 1fr); height: 64px; z-index: 50;
+nav button{
+    border:0;
+    background:transparent;
+    color:white;
+    padding:11px 15px;
+    cursor:pointer;
+    font-size:14px;
+    border-radius:7px;
+}
+
+nav button.active,
+nav button:hover{
+    background:var(--dark2);
+    color:var(--gold);
+}
+
+.hero{
+    background:linear-gradient(120deg,#101827,#203b55);
+    padding:75px 18px;
+    text-align:center;
+    color:white;
+}
+
+.hero .tag{
+    color:var(--gold);
+    letter-spacing:3px;
+    font-size:12px;
+    font-weight:bold;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:43px;
+    margin-bottom:18px;
+}
+
+.hero h1 span{
+    color:var(--gold);
+}
+
+.hero p{
+    color:#d0d9e4;
+    max-width:680px;
+    margin:auto;
+    line-height:1.8;
+    font-size:15px;
+}
+
+.hero .hero-btn{
+    display:inline-block;
+    margin-top:28px;
+    padding:14px 27px;
+    background:var(--gold);
+    color:#101827;
+    text-decoration:none;
+    font-weight:bold;
+    border-radius:7px;
+    cursor:pointer;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    padding:45px 0;
+}
+
+.section-heading{
+    margin-bottom:28px;
+}
+
+.section-heading h2{
+    font-size:27px;
+    color:var(--dark);
+    margin-bottom:9px;
+}
+
+.section-heading p{
+    color:var(--muted);
+    line-height:1.6;
+    font-size:14px;
+}
+
+.search-area{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    margin-bottom:30px;
+    box-shadow:0 3px 15px rgba(0,0,0,.04);
+}
+
+.search-area input{
+    width:100%;
+    padding:16px;
+    border:1px solid #e0e4eb;
+    border-radius:8px;
+    font-size:15px;
+    outline:none;
+}
+
+.search-area input:focus{
+    border-color:var(--gold);
+}
+
+.search-info{
+    font-size:12px;
+    color:var(--muted);
+    margin-top:10px;
+}
+
+.category-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+}
+
+.category{
+    background:white;
+    padding:21px 14px;
+    border-radius:12px;
+    border:1px solid #e9edf2;
+    cursor:pointer;
+    transition:.2s;
+    text-align:left;
+}
+
+.category:hover{
+    transform:translateY(-4px);
+    border-color:var(--gold);
+    box-shadow:0 7px 20px rgba(0,0,0,.07);
+}
+
+.category .emoji{
+    font-size:29px;
+    margin-bottom:13px;
+}
+
+.category h3{
+    font-size:15px;
+    margin-bottom:7px;
+    color:var(--dark);
+}
+
+.category p{
+    color:var(--muted);
+    font-size:12px;
+}
+
+.category .arrow{
+    display:block;
+    margin-top:13px;
+    color:#b18b45;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.files-section{
+    display:none;
+    margin-top:40px;
+}
+
+.files-section.show{
+    display:block;
+}
+
+.back-btn{
+    border:0;
+    background:#e8edf4;
+    padding:11px 16px;
+    border-radius:7px;
+    cursor:pointer;
+    margin-bottom:22px;
+    color:var(--dark);
+    font-weight:bold;
+}
+
+.file-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:19px;
+}
+
+.file-card{
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    border:1px solid #e8ebf0;
+    transition:.2s;
+}
+
+.file-card:hover{
+    box-shadow:0 7px 20px rgba(0,0,0,.07);
+    transform:translateY(-3px);
+}
+
+.file-cover{
+    background:linear-gradient(135deg,#17263a,#304d68);
+    min-height:125px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:47px;
+}
+
+.file-info{
+    padding:19px;
+}
+
+.file-info .type{
+    color:#ad8742;
+    font-size:11px;
+    font-weight:bold;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.file-info h3{
+    font-size:17px;
+    margin:10px 0;
+    color:var(--dark);
+    line-height:1.5;
+}
+
+.file-info p{
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.7;
+    min-height:42px;
+}
+
+.file-price{
+    color:#168b58;
+    font-size:22px;
+    font-weight:bold;
+    margin:17px 0;
+}
+
+.buy-btn{
+    display:block;
+    width:100%;
+    background:var(--green);
+    color:white;
+    text-decoration:none;
+    text-align:center;
+    padding:13px;
+    border-radius:7px;
+    font-size:13px;
+    font-weight:bold;
+    transition:.2s;
+}
+
+.buy-btn:hover{
+    background:#118b54;
+}
+
+.empty{
+    background:white;
+    padding:45px 15px;
+    border-radius:10px;
+    text-align:center;
+    color:var(--muted);
+    grid-column:1/-1;
+    line-height:1.8;
+}
+
+.about{
+    background:var(--dark);
+    color:white;
+    padding:60px 18px;
+}
+
+.about-content{
+    max-width:850px;
+    margin:auto;
+    text-align:center;
+}
+
+.about h2{
+    color:var(--gold);
+    font-size:29px;
+    margin-bottom:22px;
+}
+
+.about p{
+    color:#d0d9e4;
+    line-height:2;
+    font-size:15px;
+}
+
+.about-points{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-top:30px;
+}
+
+.about-point{
+    background:#1b2b40;
+    padding:20px 12px;
+    border-radius:10px;
+}
+
+.about-point h3{
+    color:var(--gold);
+    font-size:15px;
+    margin:10px 0;
+}
+
+.about-point p{
+    font-size:12px;
+    line-height:1.7;
+}
+
+.contact{
+    padding:45px 15px;
+    text-align:center;
+    background:white;
+}
+
+.contact h2{
+    margin-bottom:12px;
+}
+
+.contact p{
+    color:var(--muted);
+    margin-bottom:20px;
+    font-size:14px;
+}
+
+.contact a{
+    display:inline-block;
+    padding:14px 25px;
+    background:var(--green);
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+footer{
+    background:#0a111d;
+    color:#aab5c4;
+    text-align:center;
+    padding:27px 15px;
+    font-size:12px;
+    line-height:2;
+}
+
+footer strong{
+    color:var(--gold);
+    font-size:16px;
+}
+
+@media(max-width:900px){
+    .category-grid{
+        grid-template-columns:repeat(3,1fr);
     }
-    .nav-item {
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      color: #0b1f3a; font-size: 0.68rem; font-weight: 700; gap: 3px; text-decoration: none;
+
+    .file-grid{
+        grid-template-columns:repeat(2,1fr);
     }
-    .nav-item svg { width: 22px; height: 22px; }
-  </style>
+}
+
+@media(max-width:600px){
+    header{
+        justify-content:center;
+    }
+
+    nav{
+        width:100%;
+        justify-content:center;
+    }
+
+    nav button{
+        padding:10px 12px;
+    }
+
+    .hero{
+        padding:58px 15px;
+    }
+
+    .hero h1{
+        font-size:30px;
+    }
+
+    .container{
+        width:92%;
+        padding:35px 0;
+    }
+
+    .category-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:11px;
+    }
+
+    .category{
+        padding:17px 12px;
+    }
+
+    .category h3{
+        font-size:13px;
+    }
+
+    .file-grid{
+        grid-template-columns:1fr;
+    }
+
+    .about-points{
+        grid-template-columns:1fr;
+    }
+}
+</style>
 </head>
 <body>
 
-  <header class="header">
-    <a href="#tab-home" class="logo">
-      <svg width="28" height="22" viewBox="0 0 36 28" fill="none">
-        <path d="M2 25L13.5 5L21 17.5L26 10.5L34 25H2Z" fill="#0B1F3A" stroke="#000" stroke-width="2"/>
-        <path d="M13.5 5L17.2 11.4L13.5 13.5L9.8 11.4L13.5 5Z" fill="#FFF"/>
-      </svg>
-      <span>MOUNTAIN</span>
+<header>
+    <div class="logo">
+        RESEARCH <span>VAULT</span>
+    </div>
+
+    <nav>
+        <button class="active" id="homeTab" onclick="showHome()">HOME</button>
+        <button id="searchTab" onclick="showSearch()">SEARCH</button>
+        <button id="aboutTab" onclick="showAbout()">ABOUT US</button>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="tag">KNOWLEDGE • HISTORY • RESEARCH</div>
+
+    <h1>Explore The World Of <span>Research</span></h1>
+
+    <p>
+        Discover premium research files, historical discoveries,
+        educational study materials, scientific investigations
+        and knowledge-based documents.
+    </p>
+
+    <a href="#categories" class="hero-btn">EXPLORE FILES</a>
+</section>
+
+<main class="container" id="homePage">
+
+    <div class="section-heading">
+        <h2>Explore Categories</h2>
+        <p>
+            अपनी पसंद के विषय की कैटेगरी चुनें और उपलब्ध रिसर्च फाइलें देखें।
+        </p>
+    </div>
+
+    <div class="search-area" id="searchArea">
+        <input
+            type="search"
+            id="searchInput"
+            placeholder="Search research, history, class notes, science..."
+            oninput="searchFiles()"
+        >
+
+        <div class="search-info" id="searchInfo">
+            Search by file name, category or subject.
+        </div>
+    </div>
+
+    <div class="category-grid" id="categories">
+
+        <div class="category" onclick="openCategory('class6')">
+            <div class="emoji">📚</div>
+            <h3>Class 6 Notes</h3>
+            <p>School Study Materials</p>
+            <span class="arrow">EXPLORE FILES →</span>
+        </div>
+
+        <div class="category" onclick="openCategory('class7')">
+            <div class="emoji">📚</div>
+            <h3>Class 7 Notes</h3>
+            <p>School Study Materials</p>
+            <span class="arrow">EXPLORE FILES →</span>
+        </div>
+
+        <div class="category" onclick="openCategory('class8')">
+            <div class="emoji">📚</div>
+            <h3>Class 8 Notes</h3>
+            <p>School Study Materials</p>
+            <span class="arrow">EXPLORE FILES →</span>
+        </div>
+
+        <div class="category" onclick="openCategory('class9')">
+            <div class="emoji">📚</div>
+            <h3>Class 9 Notes</h3>
+            <p>School Study Materials</p>
+            <span class="arrow">EXPLORE FILES →</span>
+        </div>
+
+        <div class="category" onclick="openCategory('class10')">
+            <div class="emoji">📚</div>
+            <h3>Class 10 Notes</h3>
+            <p>School Study Materials</p>
+            <span class="arrow">EXPLORE FILES →</span>
+        </div>
+
+        <div class="category" onclick="openCategory('class11')">
+            <div class="emoji">🎓</div>
+            <h3>Class 11 Notes</h3>
+            <p>Senior Secondary</p>
+            <span class="arrow">EXPLORE FILES →</span>
+        </div>
+
+        <div class="category" onclick="openCategory('class12')">
+            <div class="emoji">🎓</div>
+            <h3>Class 12 Notes</h3>
+            <p>Senior Secondary</p>
+            <span class="arrow">EXPLORE FILES →</span>
+        </div>
+
+        <div class="category" onclick="openCategory('graduation')">
+            <div class="emoji">🏛️</div>
+            <h3>Graduation</h3>
+            <p>University Study Materials</p>
+            <span class="arrow">EXPLORE FILES →</span>
+        </div>
+
+        <div class="category" onclick="openCategory('history')">
+            <div class="emoji">🏺</div>
+            <h3>History Research</h3>
+            <p>Ancient & Modern History</p>
+            <span class="arrow">EXPLORE FILES →</span>
+        </div>
+
+        <div class="category" onclick="openCategory('pyramids')">
+            <div class="emoji">🔺</div>
+            <h3>Pyramids Research</h3>
+            <p>Ancient Egyptian Civilization</p>
+            <span class="arrow">EXPLORE FILES →</span>
+        </div>
+
+        <div class="category" onclick="openCategory('kailash')">
+            <div class="emoji">🏔️</div>
+            <h3>Kailash Mountain</h3>
+            <p>Historical & Geographical Research</p>
+            <span class="arrow">EXPLORE FILES →</span>
+        </div>
+
+        <div class="category" onclick="openCategory('bermuda')">
+            <div class="emoji">🌊</div>
+            <h3>Bermuda Triangle</h3>
+            <p>Ocean & Maritime Research</p>
+            <span class="arrow">EXPLORE FILES →</span>
+        </div>
+
+        <div class="category" onclick="openCategory('titanic')">
+            <div class="emoji">🚢</div>
+            <h3>Titanic Research</h3>
+            <p>Historical Maritime Events</p>
+            <span class="arrow">EXPLORE FILES →</span>
+        </div>
+
+        <div class="category" onclick="openCategory('civilizations')">
+            <div class="emoji">🏛️</div>
+            <h3>Ancient Civilizations</h3>
+            <p>Lost Cities & Cultures</p>
+            <span class="arrow">EXPLORE FILES →</span>
+        </div>
+
+        <div class="category" onclick="openCategory('archaeology')">
+            <div class="emoji">⛏️</div>
+            <h3>Archaeology</h3>
+            <p>Discoveries & Excavations</p>
+            <span class="arrow">EXPLORE FILES →</span>
+        </div>
+
+        <div class="category" onclick="openCategory('mysteries')">
+            <div class="emoji">🔍</div>
+            <h3>World Mysteries</h3>
+            <p>Unsolved Historical Questions</p>
+            <span class="arrow">EXPLORE FILES →</span>
+        </div>
+
+        <div class="category" onclick="openCategory('science')">
+            <div class="emoji">🔬</div>
+            <h3>Science Research</h3>
+            <p>Scientific Discoveries</p>
+            <span class="arrow">EXPLORE FILES →</span>
+        </div>
+
+        <div class="category" onclick="openCategory('geography')">
+            <div class="emoji">🌍</div>
+            <h3>Geography Research</h3>
+            <p>Earth & Natural Phenomena</p>
+            <span class="arrow">EXPLORE FILES →</span>
+        </div>
+
+        <div class="category" onclick="openCategory('politics')">
+            <div class="emoji">⚖️</div>
+            <h3>Politics Research</h3>
+            <p>Political Systems & Analysis</p>
+            <span class="arrow">EXPLORE FILES →</span>
+        </div>
+
+        <div class="category" onclick="openCategory('economics')">
+            <div class="emoji">📈</div>
+            <h3>Economics Research</h3>
+            <p>Money & Global Economy</p>
+            <span class="arrow">EXPLORE FILES →</span>
+        </div>
+
+        <div class="category" onclick="openCategory('technology')">
+            <div class="emoji">💻</div>
+            <h3>Technology Research</h3>
+            <p>AI & Modern Technology</p>
+            <span class="arrow">EXPLORE FILES →</span>
+        </div>
+
+        <div class="category" onclick="openCategory('mathematics')">
+            <div class="emoji">📐</div>
+            <h3>Mathematics</h3>
+            <p>Math Notes & Research</p>
+            <span class="arrow">EXPLORE FILES →</span>
+        </div>
+
+        <div class="category" onclick="openCategory('physics')">
+            <div class="emoji">⚡</div>
+            <h3>Physics</h3>
+            <p>Physical Sciences</p>
+            <span class="arrow">EXPLORE FILES →</span>
+        </div>
+
+        <div class="category" onclick="openCategory('biology')">
+            <div class="emoji">🧬</div>
+            <h3>Biology</h3>
+            <p>Life Sciences</p>
+            <span class="arrow">EXPLORE FILES →</span>
+        </div>
+
+        <div class="category" onclick="openCategory('chemistry')">
+            <div class="emoji">🧪</div>
+            <h3>Chemistry</h3>
+            <p>Chemical Sciences</p>
+            <span class="arrow">EXPLORE FILES →</span>
+        </div>
+
+        <div class="category" onclick="openCategory('gk')">
+            <div class="emoji">🧠</div>
+            <h3>General Knowledge</h3>
+            <p>Knowledge & Information</p>
+            <span class="arrow">EXPLORE FILES →</span>
+        </div>
+
+        <div class="category" onclick="openCategory('competitive')">
+            <div class="emoji">🏆</div>
+            <h3>Competitive Exams</h3>
+            <p>Exam Preparation Materials</p>
+            <span class="arrow">EXPLORE FILES →</span>
+        </div>
+
+        <div class="category" onclick="openCategory('researchpapers')">
+            <div class="emoji">📑</div>
+            <h3>Research Papers</h3>
+            <p>Detailed Research Documents</p>
+            <span class="arrow">EXPLORE FILES →</span>
+        </div>
+
+        <div class="category" onclick="openCategory('world')">
+            <div class="emoji">🌐</div>
+            <h3>World Research</h3>
+            <p>Global Topics & Investigations</p>
+            <span class="arrow">EXPLORE FILES →</span>
+        </div>
+
+    </div>
+
+    <section class="files-section" id="filesSection">
+
+        <button class="back-btn" onclick="backToCategories()">
+            ← BACK TO CATEGORIES
+        </button>
+
+        <div class="section-heading">
+            <h2 id="categoryTitle">Research Files</h2>
+            <p id="categoryDescription">
+                Available files in this category.
+            </p>
+        </div>
+
+        <div class="file-grid" id="fileGrid"></div>
+
+    </section>
+
+</main>
+
+
+<section class="about" id="aboutPage">
+
+    <div class="about-content">
+
+        <h2>About Research Vault</h2>
+
+        <p>
+            RESEARCH VAULT एक डिजिटल रिसर्च और ज्ञान आधारित
+            प्लेटफॉर्म है। यहाँ शिक्षा, इतिहास, प्राचीन सभ्यताओं,
+            विज्ञान, भूगोल, राजनीति, तकनीक और दुनिया के महत्वपूर्ण
+            विषयों से संबंधित रिसर्च फाइलें उपलब्ध कराई जाती हैं।
+
+            <br><br>
+
+            हमारा उद्देश्य लोगों को उपयोगी, व्यवस्थित और
+            जानकारीपूर्ण रिसर्च सामग्री एक ही स्थान पर उपलब्ध कराना है।
+
+            <br><br>
+
+            यहाँ उपलब्ध सामग्री की जानकारी और कीमत देखने के बाद
+            ग्राहक सीधे WhatsApp के माध्यम से संपर्क करके फाइल
+            खरीद सकते हैं।
+        </p>
+
+        <div class="about-points">
+
+            <div class="about-point">
+                <div style="font-size:27px">🔬</div>
+                <h3>Research Based</h3>
+                <p>तथ्यों और उपलब्ध स्रोतों पर आधारित अध्ययन सामग्री।</p>
+            </div>
+
+            <div class="about-point">
+                <div style="font-size:27px">📚</div>
+                <h3>Knowledge Library</h3>
+                <p>शिक्षा और अलग-अलग विषयों की डिजिटल सामग्री।</p>
+            </div>
+
+            <div class="about-point">
+                <div style="font-size:27px">📱</div>
+                <h3>Direct Contact</h3>
+                <p>WhatsApp से सीधे संपर्क और खरीदारी।</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="contact" id="contactSection">
+
+    <h2>Contact Us</h2>
+
+    <p>
+        किसी भी रिसर्च फाइल की जानकारी या खरीदारी के लिए संपर्क करें।
+    </p>
+
+    <a
+        href="https://wa.me/918115391338?text=Hello%20Research%20Vault%2C%20I%20want%20to%20know%20about%20your%20research%20files."
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        CONTACT US ON WHATSAPP
     </a>
-    <span class="badge-app">APP v1.0</span>
-  </header>
 
-  <!-- HOME TAB -->
-  <div id="tab-home" class="page">
-    <div class="hero">
-      <div class="container">
-        <h1>Where Authors Rise.</h1>
-        <p>Publish eBooks & PDF Research Files directly to readers. Earn 60%–70% royalty on every sale.</p>
-        <div class="btn-row">
-          <a href="#tab-publish" class="btn btn-white">+ Publish Now</a>
-          <a href="#tab-search" class="btn btn-outline">Explore</a>
-        </div>
-      </div>
-    </div>
-    <div class="container" id="bookList">
-      <h2 class="sec-title">Featured Releases</h2>
-      <div class="card">
-        <div class="cover"><span class="tag">eBook</span>The Peak of Focus</div>
-        <div class="card-body">
-          <h3>The Peak of Focus</h3>
-          <div class="author">By Aarav Sharma</div>
-          <div class="price">₹299</div>
-          <p class="desc">A practical guide to deep work and mental clarity for modern creators.</p>
-          <a href="#tab-earnings" class="btn btn-navy">Buy Now</a>
-        </div>
-      </div>
-      <div class="card">
-        <div class="cover"><span class="tag">PDF Research</span>AI & Future Markets 2026</div>
-        <div class="card-body">
-          <h3>AI & Future Markets 2026</h3>
-          <div class="author">By Dr. Meera Nair</div>
-          <div class="price">₹499</div>
-          <p class="desc">Comprehensive data analysis on emerging AI economies and digital publishing.</p>
-          <a href="#tab-earnings" class="btn btn-navy">Buy Now</a>
-        </div>
-      </div>
-    </div>
-  </div>
+</section>
 
-  <!-- SEARCH TAB -->
-  <div id="tab-search" class="page">
-    <div class="container">
-      <h2 class="sec-title">Search Library</h2>
-      <input type="text" class="input" placeholder="Search book or PDF title..." onkeyup="searchBooks(this.value)" />
-      <div id="searchArea">
-        <div class="card book-item"><div class="card-body"><h3>The Peak of Focus</h3><div class="author">Aarav Sharma • eBook • ₹299</div></div></div>
-        <div class="card book-item"><div class="card-body"><h3>AI & Future Markets 2026</h3><div class="author">Dr. Meera Nair • PDF Research • ₹499</div></div></div>
-        <div class="card book-item"><div class="card-body"><h3>Zero to Independent Author</h3><div class="author">Tanveer Alam • eBook • ₹199</div></div></div>
-      </div>
-    </div>
-  </div>
 
-  <!-- PUBLISH TAB (पूरा अपग्रेडेड सिस्टम) -->
-  <div id="tab-publish" class="page">
-    <div class="container">
-      <h2 class="sec-title">Publish eBook or PDF</h2>
-      <div class="card"><div class="card-body">
+<footer>
 
-        <label class="form-label">1. Select Format (क्या पब्लिश करना है?)</label>
-        <div class="type-selector">
-          <label class="type-option">
-            <input type="radio" name="pubFormat" value="eBook (60% Royalty)" checked /> 📖 eBook
-          </label>
-          <label class="type-option">
-            <input type="radio" name="pubFormat" value="PDF File (70% Royalty)" /> 📄 PDF File
-          </label>
-        </div>
+    <strong>RESEARCH VAULT</strong>
 
-        <label class="form-label">2. Book / PDF Title (किताब या पीडीएफ का नाम)</label>
-        <input type="text" id="tTitle" class="input" placeholder="उदाहरण: सफलता के सूत्र" />
+    <p>Research | Education | History | Knowledge</p>
 
-        <label class="form-label">3. Author Name (लेखक का नाम)</label>
-        <input type="text" id="tAuthor" class="input" placeholder="अपना पूरा नाम लिखें" />
+    <p>© 2026 Research Vault. All Rights Reserved.</p>
 
-        <label class="form-label">4. Author Email (रॉयल्टी और संपर्क के लिए ईमेल)</label>
-        <input type="email" id="tEmail" class="input" placeholder="author@example.com" />
+</footer>
+<script>
 
-        <label class="form-label">5. Upload Cover Photo (कवर फोटो चुनें)</label>
-        <div class="upload-box">
-          <p>🖼️ किताब का कवर फोटो अपलोड करें</p>
-          <span>JPG, PNG या WebP फॉर्मेट</span>
-          <input type="file" id="tCover" class="file-input" accept="image/*" />
-        </div>
+// ========================================
+// WHATSAPP NUMBER
+// ========================================
 
-        <label class="form-label">6. Upload PDF / eBook File (असली फाइल अपलोड करें)</label>
-        <div class="upload-box">
-          <p>📂 अपनी PDF या eBook फाइल चुनें</p>
-          <span>केवल .PDF, .EPUB या .DOCX फाइल</span>
-          <input type="file" id="tPdfFile" class="file-input" accept=".pdf,.epub,.doc,.docx" />
-        </div>
+const WHATSAPP_NUMBER = "918115391338";
 
-        <label class="form-label">7. Price in INR (कीमत ₹ में)</label>
-        <input type="number" id="tPrice" class="input" placeholder="299" />
 
-        <label class="form-label">8. Description (किताब के बारे में जानकारी)</label>
-        
+// ========================================
+// FILE DATABASE
+// ========================================
+
+// यहां अपनी असली फाइलों की जानकारी जोड़ें।
+
+const files = [
+
+    {
+        id:1,
+        name:"The Great Pyramids of Egypt",
+        category:"pyramids",
+        type:"Historical Research",
+        description:"मिस्र के पिरामिडों का इतिहास, निर्माण और पुरातात्विक अध्ययन।",
+        price:99,
+        icon:"🔺"
+    },
+
+    {
+        id:2,
+        name:"Kailash Mountain Research",
+        category:"kailash",
+        type:"Geography Research",
+        description:"कैलाश पर्वत का भूगोल, इतिहास और विभिन्न मान्यताओं का अध्ययन।",
+        price:149,
+        icon:"🏔️"
+    },
+
+    {
+        id:3,
+        name:"Bermuda Triangle Investigation",
+        category:"bermuda",
+        type:"Ocean Research",
+        description:"बरमूडा ट्रायंगल से जुड़ी घटनाओं और वैज्ञानिक व्याख्याओं का अध्ययन।",
+        price:129,
+        icon:"🌊"
+    },
+
+    {
+        id:4,
+        name:"Titanic: A Historical Study",
+        category:"titanic",
+        type:"Historical Research",
+        description:"टाइटैनिक का इतिहास, यात्रा और उसके डूबने की घटना।",
+        price:99,
+        icon:"🚢"
+    },
+
+    {
+        id:5,
+        name:"Ancient Civilizations",
+        category:"civilizations",
+        type:"Ancient History",
+        description:"विश्व की प्राचीन सभ्यताओं और उनके विकास का अध्ययन।",
+        price:179,
+        icon:"🏛️"
+    },
+
+    {
+        id:6,
+        name:"Class 9 Science Notes",
+        category:"class9",
+        type:"Educational Notes",
+        description:"कक्षा 9 विज्ञान के व्यवस्थित अध्ययन नोट्स।",
+        price:49,
+        icon:"🔬"
+    },
+
+    {
+        id:7,
+        name:"Class 10 Mathematics Notes",
+        category:"class10",
+        type:"Educational Notes",
+        description:"कक्षा 10 गणित के अध्ययन नोट्स।",
+        price:59,
+        icon:"📐"
+    },
+
+    {
+        id:8,
+        name:"World Geography Research",
+        category:"geography",
+        type:"Geography Research",
+        description:"पृथ्वी, महाद्वीप, महासागर और प्राकृतिक घटनाओं का अध्ययन।",
+        price:119,
+        icon:"🌍"
+    },
+
+    {
+        id:9,
+        name:"History of Ancient Egypt",
+        category:"history",
+        type:"Historical Research",
+        description:"प्राचीन मिस्र के इतिहास और संस्कृति का अध्ययन।",
+        price:149,
+        icon:"🏺"
+    },
+
+    {
+        id:10,
+        name:"Artificial Intelligence Research",
+        category:"technology",
+        type:"Technology Research",
+        description:"कृत्रिम बुद्धिमत्ता का विकास और आधुनिक उपयोग।",
+        price:99,
+        icon:"💻"
+    }
+
+];
+
+
+// ========================================
+// CATEGORY INFORMATION
+// ========================================
+
+const categoryNames = {
+
+    class6:"Class 6 Notes",
+    class7:"Class 7 Notes",
+    class8:"Class 8 Notes",
+    class9:"Class 9 Notes",
+    class10:"Class 10 Notes",
+    class11:"Class 11 Notes",
+    class12:"Class 12 Notes",
+    graduation:"Graduation",
+
+    history:"History Research",
+    pyramids:"Pyramids Research",
+    kailash:"Kailash Mountain",
+    bermuda:"Bermuda Triangle",
+    titanic:"Titanic Research",
+    civilizations:"Ancient Civilizations",
+    archaeology:"Archaeology",
+    mysteries:"World Mysteries",
+
+    science:"Science Research",
+    geography:"Geography Research",
+    politics:"Politics Research",
+    economics:"Economics Research",
+    technology:"Technology Research",
+    mathematics:"Mathematics",
+    physics:"Physics",
+    biology:"Biology",
+    chemistry:"Chemistry",
+    gk:"General Knowledge",
+    competitive:"Competitive Exams",
+    researchpapers:"Research Papers",
+    world:"World Research"
+
+};
+
+
+// ========================================
+// NAVIGATION
+// ========================================
+
+function setActive(tab){
+
+    document.querySelectorAll("nav button").forEach(button=>{
+        button.classList.remove("active");
+    });
+
+    document.getElementById(tab).classList.add("active");
+
+}
+
+function showHome(){
+
+    document.getElementById("homePage").style.display="block";
+
+    document.getElementById("filesSection").classList.remove("show");
+
+    document.getElementById("aboutPage").style.display="none";
+
+    document.getElementById("searchArea").style.display="block";
+
+    document.getElementById("categories").style.display="grid";
+
+    setActive("homeTab");
+
+    window.scrollTo({top:0,behavior:"smooth"});
+
+}
+
+function showSearch(){
+
+    showHome();
+
+    setActive("searchTab");
+
+    document.getElementById("searchInput").focus();
+
+}
+
+function showAbout(){
+
+    document.getElementById("homePage").style.display="none";
+
+    document.getElementById("filesSection").classList.remove("show");
+
+    document.getElementById("aboutPage").style.display="block";
+
+    setActive("aboutTab");
+
+    window.scrollTo({top:0,behavior:"smooth"});
+
+}
+
+
+// ========================================
+// OPEN CATEGORY
+// ========================================
+
+function openCategory(category){
+
+    const selected = files.filter(file=>
+        file.category===category
+    );
+
+    document.getElementById("homePage").style.display="block";
+
+    document.getElementById("searchArea").style.display="none";
+
+    document.getElementById("categories").style.display="none";
+
+    document.getElementById("aboutPage").style.display="none";
+
+    const section=document.getElementById("filesSection");
+
+    section.classList.add("show");
+
+    document.getElementById("categoryTitle").textContent =
+        categoryNames[category] || "Research Files";
+
+    document.getElementById("categoryDescription").textContent =
+        selected.length + " files available in this category.";
+
+    displayFiles(selected);
+
+    window.scrollTo({top:250,behavior:"smooth"});
+
+    setActive("homeTab");
+
+}
+
+
+// ========================================
+// BACK TO CATEGORIES
+// ========================================
+
+function backToCategories(){
+
+    document.getElementById("filesSection").classList.remove("show");
+
+    document.getElementById("categories").style.display="grid";
+
+    document.getElementById("searchArea").style.display="block";
+
+    document.getElementById("searchInput").value="";
+
+    document.getElementById("searchInfo").textContent=
+        "Search by file name, category or subject.";
+
+    window.scrollTo({top:250,behavior:"smooth"});
+
+}
+
+
+// ========================================
+// DISPLAY FILES
+// ========================================
+
+function displayFiles(list){
+
+    const grid=document.getElementById("fileGrid");
+
+    grid.innerHTML="";
+
+    if(list.length===0){
+
+        grid.innerHTML=`
+            <div class="empty">
+                <h3>No Files Available</h3>
+                <p>इस कैटेगरी में अभी कोई फाइल उपलब्ध नहीं है।</p>
+            </div>
+        `;
+
+        return;
+
+    }
+
+    list.forEach(file=>{
+
+        const card=document.createElement("article");
+
+        card.className="file-card";
+
+        const cover=document.createElement("div");
+
+        cover.className="file-cover";
+
+        cover.textContent=file.icon || "📄";
+
+        const info=document.createElement("div");
+
+        info.className="file-info";
+
+        const type=document.createElement("div");
+
+        type.className="type";
+
+        type.textContent=file.type;
+
+        const title=document.createElement("h3");
+
+        title.textContent=file.name;
+
+        const description=document.createElement("p");
+
+        description.textContent=file.description;
+
+        const price=document.createElement("div");
+
+        price.className="file-price";
+
+        price.textContent="₹"+file.price;
+
+        const buy=document.createElement("a");
+
+        buy.className="buy-btn";
+
+        buy.target="_blank";
+
+        buy.rel="noopener noreferrer";
+
+        const message=
+            "Hello Research Vault! I want to purchase this file:\n"+
+            "File: "+file.name+"\n"+
+            "Category: "+(categoryNames[file.category] || file.category)+"\n"+
+            "Price: ₹"+file.price+"\n"+
+            "Please share the purchasing details.";
+
+        buy.href=
+            "https://wa.me/"+
+            WHATSAPP_NUMBER+
+            "?text="+encodeURIComponent(message);
+
+        buy.textContent="BUY NOW ON WHATSAPP";
+
+        info.append(
+            type,
+            title,
+            description,
+            price,
+            buy
+        );
+
+        card.append(cover,info);
+
+        grid.appendChild(card);
+
+    });
+
+}
+
+
+// ========================================
+// SEARCH ALL FILES
+// ========================================
+
+function searchFiles(){
+
+    const query=document
+        .getElementById("searchInput")
+        .value
+        .trim()
+        .toLowerCase();
+
+    const categories=document.getElementById("categories");
+
+    const section=document.getElementById("filesSection");
+
+    const about=document.getElementById("aboutPage");
+
+    categories.style.display="none";
+
+    about.style.display="none";
+
+    section.classList.add("show");
+
+    const results=files.filter(file=>{
+
+        const category=categoryNames[file.category] || "";
+
+        return (
+            file.name.toLowerCase().includes(query) ||
+            file.description.toLowerCase().includes(query) ||
+            file.type.toLowerCase().includes(query) ||
+            category.toLowerCase().includes(query)
+        );
+
+    });
+
+    document.getElementById("categoryTitle").textContent=
+        query ? "Search Results" : "All Available Files";
+
+    document.getElementById("categoryDescription").textContent=
+        results.length+" files found.";
+
+    document.getElementById("searchInfo").textContent=
+        results.length+" matching files found.";
+
+    displayFiles(results);
+
+}
+
+
+// ========================================
+// INITIALIZATION
+// ========================================
+
+document.getElementById("aboutPage").style.display="none";
+
+</script>
+
+</body>
+</html>
