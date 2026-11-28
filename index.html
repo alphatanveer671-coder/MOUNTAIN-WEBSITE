@@ -2390,4 +2390,21 @@ loadCategories();
 
 <!-- ===== END RESEARCH CATEGORIES EXPLORER ===== -->
 
-  
+</body>
+<!-- Smooth Back to Top Button -->
+<button id="rvTopBtn" title="Go to top" style="display:none; position:fixed; bottom:25px; left:25px; z-index:9999; background:#1e293b; color:#ffffff; border:2px solid #38bdf8; border-radius:50%; width:45px; height:45px; font-size:20px; cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,0.3); transition:0.3s;">↑</button>
+
+<script>
+  const rvTopBtn = document.getElementById("rvTopBtn");
+  window.addEventListener("scroll", function() {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+      rvTopBtn.style.display = "block";
+    } else {
+      rvTopBtn.style.display = "none";
+    }
+  });
+  rvTopBtn.addEventListener("click", function() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+
