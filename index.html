@@ -2054,3 +2054,364 @@ window.addEventListener("load", function() {
 
 </body>
 </html>
+<!-- =====================================
+     RESEARCH DISCOVERY LAB ADD-ON
+===================================== -->
+
+<style>
+#researchLab {
+  background: linear-gradient(145deg,#101c30,#172b45);
+  color: #fff;
+  padding: 55px 22px;
+  margin: 45px auto;
+  border: 1px solid rgba(218,174,91,.35);
+  border-radius: 22px;
+  max-width: 1100px;
+  text-align: center;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+#researchLab * {
+  box-sizing: border-box;
+}
+
+#researchLab .lab-tag {
+  color: #e6bd72;
+  letter-spacing: 3px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+#researchLab h2 {
+  font-size: clamp(26px,5vw,40px);
+  margin: 15px 0;
+  color: #fff;
+}
+
+#researchLab .lab-description {
+  color: #c2ccda;
+  max-width: 650px;
+  margin: 0 auto 28px;
+  line-height: 1.8;
+}
+
+#researchLab .lab-card {
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: 18px;
+  padding: 28px 20px;
+  max-width: 700px;
+  margin: auto;
+}
+
+#researchLab .lab-icon {
+  font-size: 42px;
+  margin-bottom: 12px;
+}
+
+#researchLab .lab-category {
+  color: #e6bd72;
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+#researchLab .lab-topic {
+  font-size: clamp(21px,4vw,29px);
+  margin: 13px 0;
+  line-height: 1.4;
+}
+
+#researchLab .lab-question {
+  color: #c8d2df;
+  line-height: 1.8;
+  margin-bottom: 22px;
+}
+
+#researchLab .lab-btn {
+  display: inline-block;
+  border: none;
+  border-radius: 9px;
+  padding: 13px 20px;
+  margin: 6px;
+  font-weight: bold;
+  font-size: 13px;
+  cursor: pointer;
+  transition: .25s;
+}
+
+#researchLab .lab-primary {
+  background: #dfb66d;
+  color: #152238;
+}
+
+#researchLab .lab-secondary {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #dfb66d;
+}
+
+#researchLab .lab-btn:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.1);
+}
+
+#researchLab .lab-note {
+  font-size: 12px;
+  color: #9eafc3;
+  margin-top: 20px;
+}
+
+#researchProgress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 4px;
+  background: #dfb66d;
+  z-index: 99999;
+}
+
+#researchTop {
+  position: fixed;
+  right: 18px;
+  bottom: 22px;
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 50%;
+  background: #dfb66d;
+  color: #142238;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 9999;
+  display: none;
+  box-shadow: 0 5px 20px #0005;
+}
+
+@media(max-width:600px) {
+  #researchLab {
+    padding: 40px 15px;
+    margin: 30px 10px;
+  }
+
+  #researchLab .lab-card {
+    padding: 24px 14px;
+  }
+
+  #researchLab .lab-btn {
+    width: 100%;
+    margin: 6px 0;
+  }
+}
+</style>
+
+<!-- RESEARCH DISCOVERY SECTION -->
+
+<section id="researchLab">
+
+  <div class="lab-tag">DISCOVER SOMETHING NEW</div>
+
+  <h2>Research Discovery Lab</h2>
+
+  <p class="lab-description">
+    Don't know what to explore next?
+    Discover a new research topic and explore
+    interesting questions from different fields
+    of knowledge.
+  </p>
+
+  <div class="lab-card">
+
+    <div class="lab-icon" id="labIcon">🌌</div>
+
+    <div class="lab-category" id="labCategory">
+      SPACE SCIENCE
+    </div>
+
+    <h3 class="lab-topic" id="labTopic">
+      Are We Alone in the Universe?
+    </h3>
+
+    <p class="lab-question" id="labQuestion">
+      Could life exist beyond Earth, and what
+      does modern science tell us about it?
+    </p>
+
+    <button class="lab-btn lab-primary"
+      onclick="generateResearchIdea()">
+      ✦ DISCOVER ANOTHER TOPIC
+    </button>
+
+    <button class="lab-btn lab-secondary"
+      onclick="requestLabTopic()">
+      REQUEST THIS RESEARCH →
+    </button>
+
+  </div>
+
+  <p class="lab-note">
+    New ideas. New questions. Unlimited curiosity.
+  </p>
+
+</section>
+
+<!-- READING PROGRESS BAR -->
+<div id="researchProgress"></div>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="researchTop"
+  onclick="window.scrollTo({top:0,behavior:'smooth'})"
+  aria-label="Back to top">
+  ↑
+</button>
+<script>
+(function(){
+
+  const ideas = [
+    {
+      icon:"🌌",
+      category:"SPACE SCIENCE",
+      topic:"Are We Alone in the Universe?",
+      question:"Could life exist beyond Earth, and what does modern science tell us about it?"
+    },
+    {
+      icon:"🏛️",
+      category:"ANCIENT HISTORY",
+      topic:"How Were the Egyptian Pyramids Built?",
+      question:"What evidence do historians and researchers have about their construction?"
+    },
+    {
+      icon:"🧠",
+      category:"PSYCHOLOGY",
+      topic:"How Does Human Memory Work?",
+      question:"Why do we remember some experiences and forget others?"
+    },
+    {
+      icon:"🤖",
+      category:"ARTIFICIAL INTELLIGENCE",
+      topic:"Can Artificial Intelligence Think?",
+      question:"How do AI systems process information and make decisions?"
+    },
+    {
+      icon:"🌍",
+      category:"ENVIRONMENT",
+      topic:"How Could Earth's Climate Change?",
+      question:"What factors influence the planet's climate over long periods?"
+    },
+    {
+      icon:"🔬",
+      category:"SCIENCE",
+      topic:"What Is the Mystery of Dark Matter?",
+      question:"Why do scientists believe that dark matter exists?"
+    },
+    {
+      icon:"🗺️",
+      category:"GEOPOLITICS",
+      topic:"How Does Geography Influence World Politics?",
+      question:"How do natural resources, borders and location affect countries?"
+    },
+    {
+      icon:"⚙️",
+      category:"ENGINEERING",
+      topic:"What Could Future Robots Do?",
+      question:"How might robotics change industries and everyday life?"
+    },
+    {
+      icon:"🧬",
+      category:"HUMAN BIOLOGY",
+      topic:"How Does the Human Brain Process Information?",
+      question:"How do different brain systems work together?"
+    },
+    {
+      icon:"🔎",
+      category:"UNSOLVED QUESTIONS",
+      topic:"Why Do Some Historical Mysteries Remain Unsolved?",
+      question:"What makes historical evidence difficult to interpret?"
+    },
+    {
+      icon:"📈",
+      category:"ECONOMICS",
+      topic:"How Do Global Economies Connect?",
+      question:"How can events in one country affect economies elsewhere?"
+    },
+    {
+      icon:"🌊",
+      category:"OCEAN SCIENCE",
+      topic:"What Remains Unexplored in the Deep Ocean?",
+      question:"Why is studying the deepest parts of the ocean so challenging?"
+    }
+  ];
+
+  let previousIndex = -1;
+  let selectedIdea = ideas[0];
+
+  window.generateResearchIdea = function(){
+
+    let index;
+
+    do {
+      index = Math.floor(Math.random() * ideas.length);
+    } while(index === previousIndex && ideas.length > 1);
+
+    previousIndex = index;
+    selectedIdea = ideas[index];
+
+    document.getElementById("labIcon").textContent =
+      selectedIdea.icon;
+
+    document.getElementById("labCategory").textContent =
+      selectedIdea.category;
+
+    document.getElementById("labTopic").textContent =
+      selectedIdea.topic;
+
+    document.getElementById("labQuestion").textContent =
+      selectedIdea.question;
+
+  };
+
+  window.requestLabTopic = function(){
+
+    const message =
+      "Hello ResearchVault! I am interested in requesting a research file on this topic:\n\n"
+      + selectedIdea.topic
+      + "\n\nPlease share the details, price and delivery information.";
+
+    window.open(
+      "https://wa.me/918115391338?text="
+      + encodeURIComponent(message),
+      "_blank"
+    );
+
+  };
+
+  function updateResearchExtras(){
+
+    const scrollTop =
+      window.scrollY || document.documentElement.scrollTop;
+
+    const totalHeight =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
+
+    const progress =
+      totalHeight > 0 ? (scrollTop / totalHeight) * 100 : 0;
+
+    document.getElementById("researchProgress")
+      .style.width = progress + "%";
+
+    document.getElementById("researchTop")
+      .style.display = scrollTop > 400 ? "block" : "none";
+
+  }
+
+  window.addEventListener("scroll", updateResearchExtras);
+  updateResearchExtras();
+
+})();
+</script>
+
+<!-- END RESEARCH DISCOVERY LAB -->
