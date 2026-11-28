@@ -2054,364 +2054,340 @@ window.addEventListener("load", function() {
 
 </body>
 </html>
-<!-- =====================================
-     RESEARCH DISCOVERY LAB ADD-ON
-===================================== -->
+
+
+<!-- ===== RESEARCH CATEGORIES EXPLORER ===== -->
 
 <style>
-#researchLab {
-  background: linear-gradient(145deg,#101c30,#172b45);
-  color: #fff;
-  padding: 55px 22px;
-  margin: 45px auto;
-  border: 1px solid rgba(218,174,91,.35);
-  border-radius: 22px;
+#rv150 {
+  background: linear-gradient(145deg,#101c30,#1b304b);
+  color: white;
+  padding: 38px 20px;
+  margin: 35px auto;
   max-width: 1100px;
+  border: 1px solid #b99350;
+  border-radius: 18px;
   text-align: center;
   font-family: inherit;
-  box-sizing: border-box;
 }
-
-#researchLab * {
-  box-sizing: border-box;
+#rv150 h2 {
+  font-size: 30px;
+  margin: 10px 0;
 }
-
-#researchLab .lab-tag {
-  color: #e6bd72;
-  letter-spacing: 3px;
-  font-size: 12px;
-  font-weight: bold;
+#rv150 p {
+  color: #c4cede;
+  line-height: 1.7;
 }
-
-#researchLab h2 {
-  font-size: clamp(26px,5vw,40px);
-  margin: 15px 0;
-  color: #fff;
-}
-
-#researchLab .lab-description {
-  color: #c2ccda;
+#rv150 input, #rv150 select {
+  width: 100%;
   max-width: 650px;
-  margin: 0 auto 28px;
-  line-height: 1.8;
-}
-
-#researchLab .lab-card {
-  background: rgba(255,255,255,.07);
-  border: 1px solid rgba(255,255,255,.13);
-  border-radius: 18px;
-  padding: 28px 20px;
-  max-width: 700px;
-  margin: auto;
-}
-
-#researchLab .lab-icon {
-  font-size: 42px;
-  margin-bottom: 12px;
-}
-
-#researchLab .lab-category {
-  color: #e6bd72;
-  font-size: 12px;
-  letter-spacing: 2px;
-  font-weight: bold;
-}
-
-#researchLab .lab-topic {
-  font-size: clamp(21px,4vw,29px);
-  margin: 13px 0;
-  line-height: 1.4;
-}
-
-#researchLab .lab-question {
-  color: #c8d2df;
-  line-height: 1.8;
-  margin-bottom: 22px;
-}
-
-#researchLab .lab-btn {
-  display: inline-block;
-  border: none;
+  padding: 15px;
+  margin: 9px auto;
+  display: block;
   border-radius: 9px;
-  padding: 13px 20px;
-  margin: 6px;
-  font-weight: bold;
+  border: 1px solid #d0aa67;
+  background: #fff;
+  color: #172238;
+  font-size: 15px;
+}
+#rv150 .rv-count {
+  color: #e5bd75;
   font-size: 13px;
-  cursor: pointer;
-  transition: .25s;
+  margin: 12px;
 }
-
-#researchLab .lab-primary {
-  background: #dfb66d;
-  color: #152238;
+#rv150 .rv-result {
+  background: #ffffff10;
+  border: 1px solid #ffffff25;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px auto 0;
+  max-width: 650px;
 }
-
-#researchLab .lab-secondary {
-  background: transparent;
-  color: #fff;
-  border: 1px solid #dfb66d;
-}
-
-#researchLab .lab-btn:hover {
-  transform: translateY(-3px);
-  filter: brightness(1.1);
-}
-
-#researchLab .lab-note {
-  font-size: 12px;
-  color: #9eafc3;
-  margin-top: 20px;
-}
-
-#researchProgress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 0%;
-  height: 4px;
-  background: #dfb66d;
-  z-index: 99999;
-}
-
-#researchTop {
-  position: fixed;
-  right: 18px;
-  bottom: 22px;
-  width: 45px;
-  height: 45px;
-  border: none;
-  border-radius: 50%;
+#rv150 .rv-button {
+  display: inline-block;
   background: #dfb66d;
   color: #142238;
-  font-size: 22px;
+  border: 0;
+  border-radius: 8px;
+  padding: 13px 22px;
+  margin-top: 12px;
   font-weight: bold;
   cursor: pointer;
-  z-index: 9999;
-  display: none;
-  box-shadow: 0 5px 20px #0005;
+  text-decoration: none;
 }
-
-@media(max-width:600px) {
-  #researchLab {
-    padding: 40px 15px;
-    margin: 30px 10px;
-  }
-
-  #researchLab .lab-card {
-    padding: 24px 14px;
-  }
-
-  #researchLab .lab-btn {
-    width: 100%;
-    margin: 6px 0;
-  }
+#rv150 .rv-button:hover {
+  transform: translateY(-2px);
 }
 </style>
 
-<!-- RESEARCH DISCOVERY SECTION -->
+<section id="rv150">
 
-<section id="researchLab">
-
-  <div class="lab-tag">DISCOVER SOMETHING NEW</div>
-
-  <h2>Research Discovery Lab</h2>
-
-  <p class="lab-description">
-    Don't know what to explore next?
-    Discover a new research topic and explore
-    interesting questions from different fields
-    of knowledge.
-  </p>
-
-  <div class="lab-card">
-
-    <div class="lab-icon" id="labIcon">🌌</div>
-
-    <div class="lab-category" id="labCategory">
-      SPACE SCIENCE
-    </div>
-
-    <h3 class="lab-topic" id="labTopic">
-      Are We Alone in the Universe?
-    </h3>
-
-    <p class="lab-question" id="labQuestion">
-      Could life exist beyond Earth, and what
-      does modern science tell us about it?
-    </p>
-
-    <button class="lab-btn lab-primary"
-      onclick="generateResearchIdea()">
-      ✦ DISCOVER ANOTHER TOPIC
-    </button>
-
-    <button class="lab-btn lab-secondary"
-      onclick="requestLabTopic()">
-      REQUEST THIS RESEARCH →
-    </button>
-
+  <div style="color:#e5bd75;letter-spacing:3px;font-size:12px;">
+    EXPLORE KNOWLEDGE
   </div>
 
-  <p class="lab-note">
-    New ideas. New questions. Unlimited curiosity.
+  <h2>Explore 150 Research Categories</h2>
+
+  <p>
+    Discover research areas from science and technology
+    to ancient mysteries, nature, history and beyond.
+    Choose a category to explore.
   </p>
+
+  <div class="rv-count">
+    150 RESEARCH CATEGORIES
+  </div>
+
+  <input
+    type="text"
+    id="rvSearch"
+    placeholder="Search a category... e.g. Robotics, Pyramids"
+  >
+
+  <select id="rvCategory">
+    <option value="">Choose a Research Category</option>
+  </select>
+
+  <div class="rv-result" id="rvResult">
+    <h3>Choose Your Interest</h3>
+    <p>Select any category from the list above.</p>
+  </div>
 
 </section>
 
-<!-- READING PROGRESS BAR -->
-<div id="researchProgress"></div>
-
-<!-- BACK TO TOP BUTTON -->
-<button id="researchTop"
-  onclick="window.scrollTo({top:0,behavior:'smooth'})"
-  aria-label="Back to top">
-  ↑
-</button>
 <script>
 (function(){
 
-  const ideas = [
-    {
-      icon:"🌌",
-      category:"SPACE SCIENCE",
-      topic:"Are We Alone in the Universe?",
-      question:"Could life exist beyond Earth, and what does modern science tell us about it?"
-    },
-    {
-      icon:"🏛️",
-      category:"ANCIENT HISTORY",
-      topic:"How Were the Egyptian Pyramids Built?",
-      question:"What evidence do historians and researchers have about their construction?"
-    },
-    {
-      icon:"🧠",
-      category:"PSYCHOLOGY",
-      topic:"How Does Human Memory Work?",
-      question:"Why do we remember some experiences and forget others?"
-    },
-    {
-      icon:"🤖",
-      category:"ARTIFICIAL INTELLIGENCE",
-      topic:"Can Artificial Intelligence Think?",
-      question:"How do AI systems process information and make decisions?"
-    },
-    {
-      icon:"🌍",
-      category:"ENVIRONMENT",
-      topic:"How Could Earth's Climate Change?",
-      question:"What factors influence the planet's climate over long periods?"
-    },
-    {
-      icon:"🔬",
-      category:"SCIENCE",
-      topic:"What Is the Mystery of Dark Matter?",
-      question:"Why do scientists believe that dark matter exists?"
-    },
-    {
-      icon:"🗺️",
-      category:"GEOPOLITICS",
-      topic:"How Does Geography Influence World Politics?",
-      question:"How do natural resources, borders and location affect countries?"
-    },
-    {
-      icon:"⚙️",
-      category:"ENGINEERING",
-      topic:"What Could Future Robots Do?",
-      question:"How might robotics change industries and everyday life?"
-    },
-    {
-      icon:"🧬",
-      category:"HUMAN BIOLOGY",
-      topic:"How Does the Human Brain Process Information?",
-      question:"How do different brain systems work together?"
-    },
-    {
-      icon:"🔎",
-      category:"UNSOLVED QUESTIONS",
-      topic:"Why Do Some Historical Mysteries Remain Unsolved?",
-      question:"What makes historical evidence difficult to interpret?"
-    },
-    {
-      icon:"📈",
-      category:"ECONOMICS",
-      topic:"How Do Global Economies Connect?",
-      question:"How can events in one country affect economies elsewhere?"
-    },
-    {
-      icon:"🌊",
-      category:"OCEAN SCIENCE",
-      topic:"What Remains Unexplored in the Deep Ocean?",
-      question:"Why is studying the deepest parts of the ocean so challenging?"
-    }
-  ];
+const categories = `
+Artificial Intelligence
+Robotics
+Machine Learning
+Deep Learning
+Data Science
+Computer Science
+Cybersecurity
+Quantum Computing
+Blockchain Technology
+Internet of Things
+Space Exploration
+Astronomy
+Astrophysics
+Black Holes
+Dark Matter
+Dark Energy
+Planetary Science
+Mars Exploration
+Moon Research
+Exoplanets
+Ancient Civilizations
+Egyptian Pyramids
+Mayan Civilization
+Indus Valley Civilization
+Mesopotamia
+Ancient Architecture
+Archaeology
+Historical Mysteries
+Lost Civilizations
+Ancient Inventions
+Mount Kailash
+Bermuda Triangle
+Unsolved Mysteries
+Lost Cities
+Ancient Maps
+Mythology Research
+World History
+Indian History
+Geopolitics
+International Relations
+Psychology
+Human Behavior
+Cognitive Science
+Neuroscience
+Human Brain
+Memory Research
+Dream Research
+Decision Making
+Social Psychology
+Personality Research
+Human Biology
+Genetics
+DNA Research
+Evolution
+Microbiology
+Biotechnology
+Stem Cell Research
+Medical Science
+Immunology
+Public Health Research
+Pharmaceutical Research
+Agriculture
+Smart Farming
+Organic Farming
+Hydroponics
+Vertical Farming
+Soil Science
+Plant Biology
+Botany
+Forestry
+Plant Diseases
+Crop Research
+Seed Technology
+Agricultural Robotics
+Climate Change
+Environmental Science
+Global Warming
+Oceanography
+Deep Sea Exploration
+Marine Biology
+Coral Reefs
+Water Conservation
+Renewable Energy
+Solar Energy
+Wind Energy
+Nuclear Energy
+Electric Vehicles
+Battery Technology
+Green Technology
+Sustainable Development
+Natural Disasters
+Earthquakes
+Volcanoes
+Glaciers
+Mountains Research
+Geology
+Geography
+Ocean Mysteries
+Wildlife Research
+Animal Behavior
+Biodiversity
+Conservation Science
+Ecosystems
+Climate History
+Economics
+Global Economy
+Behavioral Economics
+Financial Technology
+Business Strategy
+Entrepreneurship
+Startups
+Marketing Research
+Consumer Behavior
+Future of Work
+Industrial Automation
+Manufacturing Technology
+Nanotechnology
+Material Science
+3D Printing
+Aerospace Engineering
+Mechanical Engineering
+Civil Engineering
+Electrical Engineering
+Space Engineering
+Future Transportation
+Autonomous Vehicles
+Drones Technology
+Virtual Reality
+Augmented Reality
+Metaverse Research
+Human Computer Interaction
+Education Research
+Learning Science
+Language Research
+Linguistics
+Philosophy
+Ethics of Technology
+Political Science
+Public Policy
+Law and Society
+Criminology
+Urban Planning
+Architecture Research
+Cultural Anthropology
+Sociology
+Population Studies
+Food Science
+Nutrition Research
+Sports Science
+Arctic Research
+Antarctica Research
+Future Technology
+`.trim().split("\n");
 
-  let previousIndex = -1;
-  let selectedIdea = ideas[0];
+const search = document.getElementById("rvSearch");
+const select = document.getElementById("rvCategory");
+const result = document.getElementById("rvResult");
 
-  window.generateResearchIdea = function(){
+function loadCategories(filter = "") {
 
-    let index;
+  const oldValue = select.value;
 
-    do {
-      index = Math.floor(Math.random() * ideas.length);
-    } while(index === previousIndex && ideas.length > 1);
+  select.innerHTML =
+    '<option value="">Choose a Research Category</option>';
 
-    previousIndex = index;
-    selectedIdea = ideas[index];
+  categories
+    .filter(name => name.toLowerCase().includes(filter.toLowerCase()))
+    .forEach(name => {
+      const option = document.createElement("option");
+      option.value = name;
+      option.textContent = name;
+      select.appendChild(option);
+    });
 
-    document.getElementById("labIcon").textContent =
-      selectedIdea.icon;
+  if(categories.includes(oldValue) &&
+     oldValue.toLowerCase().includes(filter.toLowerCase())) {
+    select.value = oldValue;
+  }
+}
 
-    document.getElementById("labCategory").textContent =
-      selectedIdea.category;
+search.addEventListener("input", function(){
+  loadCategories(this.value);
+});
 
-    document.getElementById("labTopic").textContent =
-      selectedIdea.topic;
+select.addEventListener("change", function(){
 
-    document.getElementById("labQuestion").textContent =
-      selectedIdea.question;
+  const chosen = this.value;
 
-  };
-
-  window.requestLabTopic = function(){
-
-    const message =
-      "Hello ResearchVault! I am interested in requesting a research file on this topic:\n\n"
-      + selectedIdea.topic
-      + "\n\nPlease share the details, price and delivery information.";
-
-    window.open(
-      "https://wa.me/918115391338?text="
-      + encodeURIComponent(message),
-      "_blank"
-    );
-
-  };
-
-  function updateResearchExtras(){
-
-    const scrollTop =
-      window.scrollY || document.documentElement.scrollTop;
-
-    const totalHeight =
-      document.documentElement.scrollHeight -
-      document.documentElement.clientHeight;
-
-    const progress =
-      totalHeight > 0 ? (scrollTop / totalHeight) * 100 : 0;
-
-    document.getElementById("researchProgress")
-      .style.width = progress + "%";
-
-    document.getElementById("researchTop")
-      .style.display = scrollTop > 400 ? "block" : "none";
-
+  if(!chosen) {
+    result.innerHTML =
+      "<h3>Choose Your Interest</h3><p>Select any category from the list above.</p>";
+    return;
   }
 
-  window.addEventListener("scroll", updateResearchExtras);
-  updateResearchExtras();
+  result.innerHTML = `
+    <div style="color:#e5bd75;font-size:12px;letter-spacing:2px;">
+      SELECTED CATEGORY
+    </div>
+    <h3 style="font-size:23px;margin:12px 0;">
+      ${chosen}
+    </h3>
+    <p>
+      Want a research file in this category?
+      Contact us to discuss the topic, availability and price.
+    </p>
+    <a class="rv-button"
+       id="rvRequest"
+       target="_blank"
+       rel="noopener">
+       REQUEST THIS CATEGORY →
+    </a>
+  `;
+
+  const message =
+    "Hello ResearchVault! I want to request a research file in this category: "
+    + chosen
+    + ". Please share the available topics, price and details.";
+
+  document.getElementById("rvRequest").href =
+    "https://wa.me/918115391338?text=" +
+    encodeURIComponent(message);
+
+});
+
+loadCategories();
 
 })();
 </script>
 
-<!-- END RESEARCH DISCOVERY LAB -->
+<!-- ===== END RESEARCH CATEGORIES EXPLORER ===== -->
+
+  
